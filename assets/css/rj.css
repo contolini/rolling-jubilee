@@ -1,0 +1,46 @@
+.center {
+  text-align: center;
+}
+
+h2 {
+  font-family: MenschBoldInline;
+  font-size: 105px;
+}
+
+/* grid adjustments */
+
+.row div {
+  text-align: center;
+}
+
+.row div:first-child {
+  text-align: right;
+}
+
+.row div:last-child {
+  text-align: left;
+}
+
+/* background effects */
+
+.bg {
+  background: transparent url(../img/bg_arrow-up.png) scroll no-repeat center top;
+}
+
+.bg.arrow-up {
+  background-image: url(../img/bg_arrow-up.png);
+  padding-bottom: 110px;
+}
+
+.bg.arrow-down {
+  background-image: url(../img/bg_arrow-down.png);
+  padding-top: 110px;
+  background-position-y: bottom;
+}
+
+/* stories section */
+
+#stories {
+  background-color: #fff;
+  color: #4d4d4f;
+}

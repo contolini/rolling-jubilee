@@ -6,14 +6,21 @@ h2 {
   font-family: MenschBoldInline;
   font-size: 105px;
   line-height: 80px;
+  margin: 0;
+  position: relative;
+  z-index: 9
+}
+
+h3 {
+  font-family: MenschRegular;
 }
 
 /* grid adjustments */
-
+/*
 .row div {
   text-align: center;
 }
-/*
+
 .row div:first-child {
   text-align: right;
 }
@@ -26,6 +33,8 @@ h2 {
 
 .bg {
   background: transparent url(../img/bg_arrow-up.png) scroll no-repeat center top;
+  z-index: 5;
+  position: relative;
 }
 
 .bg.arrow-up {
@@ -43,9 +52,32 @@ h2 {
 #stories {
   background-color: #fff;
   color: #4d4d4f;
+  box-shadow: 0 0 30px 0 #000;
+  position: relative;
 }
 
 .share {
-  padding: 40px 0 75px;
+  padding: 20px 0 75px;
+  margin: 0;
+  color: #4d4d4f;
   font-style: italic;
+  text-align: center;
+}
+
+/* resources section */
+
+h3.collecting {
+  width: 820px;
+  line-height: 33px;
+  color: #737577;
+  margin: 0 auto;
+}
+
+/* faq section */
+
+#faq {
+  background-color: #fff;
+  color: #4d4d4f;
+  box-shadow: 0 0 30px 0 #000;
+  position: relative;
 }

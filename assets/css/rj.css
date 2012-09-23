@@ -5,6 +5,7 @@
 h2 {
   font-family: MenschBoldInline;
   font-size: 105px;
+  line-height: 80px;
 }
 
 /* grid adjustments */
@@ -12,7 +13,7 @@ h2 {
 .row div {
   text-align: center;
 }
-
+/*
 .row div:first-child {
   text-align: right;
 }
@@ -20,7 +21,7 @@ h2 {
 .row div:last-child {
   text-align: left;
 }
-
+*/
 /* background effects */
 
 .bg {
@@ -34,7 +35,6 @@ h2 {
 
 .bg.arrow-down {
   background-image: url(../img/bg_arrow-down.png);
-  padding-top: 110px;
   background-position-y: bottom;
 }
 
@@ -43,4 +43,9 @@ h2 {
 #stories {
   background-color: #fff;
   color: #4d4d4f;
+}
+
+.share {
+  padding: 40px 0 75px;
+  font-style: italic;
 }

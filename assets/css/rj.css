@@ -166,6 +166,11 @@ nav a {
   margin-bottom: 20px;
 }
 
+#stories a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .share {
   padding: 20px 0 95px;
   margin: 0;

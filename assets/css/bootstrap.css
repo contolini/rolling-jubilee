@@ -2090,9 +2090,19 @@ legend + .control-group {
   }
 }
 @media (max-width: 767px) {
-  body {
+  .span24 {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  .rshadow {
+    box-shadow: none !important;
+  }
+  
+  #stats .vis {
+    border: none !important;
+  }
+  h2 {
+    font-size: 50px !important;
   }
   .navbar-fixed-top,
   .navbar-fixed-bottom,

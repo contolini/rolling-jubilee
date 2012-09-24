@@ -105,6 +105,7 @@ $(function(){
   RJ.loadData('faq1', '5');
   RJ.loadData('faq2', '6');
   
+  // fancy box modals
   $('.fancybox-media').fancybox({
 		openEffect: 'none',
 		closeEffect: 'none',
@@ -113,7 +114,7 @@ $(function(){
 		}
 	});
 	
-	// experience scroll
+  // scroll when nav items are clicked
   $("nav a").click(function(){
     var el = $(this).attr('href'),
         loc = $(el).offset().top - 20;

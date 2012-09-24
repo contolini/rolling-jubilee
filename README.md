@@ -1,6 +1,8 @@
 Rolling Jubilee
 ===============
 
+Website for Rolling Jubilee. Uses [Google Drive API](https://developers.google.com/drive/) via [Miso](http://misoproject.com/) to pull content from a [spreadsheet](https://docs.google.com/spreadsheet/ccc?key=0Ao7re1ITFPKydFhKcGFDT2JpTnphbnNubTUwbThVSEE) and populate [Handlebars](http://handlebarsjs.com/) templates. Fully-responsive layout based on [Bootstrap](twitter.github.com/bootstrap/).
+
 Rolling Jubilee is a network of debtors who liberate debtors through mutual aid. We legally buy up debt for pennies on the dollar. then instead of collecting it, we abolish it.
 
 ## License

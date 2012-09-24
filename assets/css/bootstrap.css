@@ -2090,6 +2090,9 @@ legend + .control-group {
   }
 }
 @media (max-width: 767px) {
+  #videos-container .row div .inner {
+    margin: 0 auto !important;
+  }
   .span24 {
     padding-left: 20px;
     padding-right: 20px;

@@ -1,0 +1,238 @@
+h2 {
+  font-family: MenschBoldInline;
+  font-weight: normal;
+  font-size: 105px;
+  line-height: 80px;
+  margin: 0;
+  position: relative;
+  z-index: 9
+}
+
+h3, dt {
+  font-family: MenschRegular;
+  line-height: 33px;
+  font-weight: normal;
+  font-size: 22px;
+}
+
+dfn {
+  font-style: normal;
+}
+
+dt {
+  margin-bottom: 5px;
+}
+
+dd {
+  margin: 0 0 30px 0;
+  line-height: 30px;
+}
+
+/* nav */
+
+nav {
+  margin: 64px auto 0;
+  font-size: 16px;
+  font-family: MenschThin;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+  display: inline-block;
+}
+
+nav ul {
+  margin: 10px 0;
+}
+
+nav li {
+  list-style-type: none;
+  display: inline;
+}
+
+nav a {
+  text-decoration: none;
+  color: #999;
+}
+
+/* background effects */
+
+.bg {
+  background: transparent url(../img/bg_arrow-up.png) scroll no-repeat center top;
+  z-index: 5;
+  position: relative;
+}
+
+.bg.arrow-up {
+  background-image: url(../img/bg_arrow-up.png);
+  padding-bottom: 110px;
+  margin-top: -10px;
+}
+
+.bg.arrow-down {
+  background-image: url(../img/bg_arrow-down.png);
+  background-position: center bottom;
+}
+
+.bg.arrow-down-steep {
+  background-image: url(../img/bg_arrow-down-steep.png);
+  background-position: center bottom;
+  padding-bottom: 115px;
+  margin-bottom: -120px;
+}
+
+/* top section */
+
+#top {
+  color: #4d4d4f;
+  position: relative;
+}
+
+#top h1 {
+  display: none;
+}
+
+#top .rshadow {
+  -webkit-box-shadow: 10px 0px 25px -15px #000;
+}
+
+#top #logo {
+  margin: 15px 0 10px;
+}
+
+#top h3 {
+  color: #4d4d4f;
+}
+
+#social {
+  margin-top: 20px;
+}
+
+#social a img {
+  padding: 0 15px;
+}
+
+#social a:last-child img {
+  border-left: 1px solid #ccc;
+}
+
+/* stats section */
+
+#stats {
+  background: transparent url(../img/bg_coin-logo.png) scroll no-repeat 48.5% 60%;
+}
+
+#stats #number {
+  line-height: 130px;
+  border-top: 1px dotted #999;
+  border-bottom: 1px dotted #999;
+}
+
+#stats .vis {
+  border-right: 1px dotted #999;
+  margin: 20px 0;
+}
+
+#stats .row .span8:last-child .vis {
+  border: none;
+}
+
+/* stories section */
+
+#stories {
+  background-color: #fff;
+  color: #4d4d4f;
+  box-shadow: 0 0 30px 0 #000;
+  position: relative;
+}
+
+#stories h2 {
+  color: #BE1E2D;
+  margin-bottom: 20px;
+}
+
+#stories a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#stories p {
+  text-align: center;
+}
+
+.share {
+  padding: 20px 0 95px;
+  margin: 0;
+  color: #4d4d4f;
+  font-style: italic;
+  text-align: center;
+  font-size: 20px;
+}
+
+/* grid adjustments */
+
+#videos-container .row div:first-child .inner {
+  margin: 0 0 0 40px;
+}
+
+#videos-container .row div:last-child .inner {
+  margin: 0 40px 0 0;
+}
+
+#videos-container .row div:nth-child(2) .inner {
+  margin: 0 15px 0 25px;
+}
+
+#videos-container .row div:nth-child(3) .inner {
+  margin: 0 25px 0 15px;
+}
+
+/* resources section */
+
+#resources h3.center {
+  color: #737577;
+}
+
+#resources ul {
+  margin: 0;
+}
+
+#resources li {
+  font-family: Georgia;
+  list-style-type: none;
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 3px;
+  margin-bottom: 10px;
+}
+
+#resources a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* faq section */
+
+#faq {
+  background-color: #fff;
+  color: #4d4d4f;
+  box-shadow: 0 0 30px 0 #000;
+  position: relative;
+}
+
+#faq h2 {
+  color: #BE1E2D;
+  margin-bottom: 20px;
+}
+
+/* misc. */
+
+.center {
+  text-align: center;
+}
+
+#contact {
+  font-style: italic;
+  margin: 20px 0;
+}
+
+#contact a {
+  color: #BE1E2D;
+}

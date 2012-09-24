@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rolling Jubilee" />
+    <meta name="copyright" content="Licensed under GPL and MIT." />
+    <meta name="description" content="Rolling Jubilee is a network of debtors who liberate debtors through mutual aid. We legally buy up debt for pennies on the dollar. then instead of collecting it, we abolish it." />
+    <title>Rolling Jubilee</title>
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="assets/fonts/mensch/font.css" />
+    <link rel="stylesheet" href="assets/js/fancybox/jquery.fancybox.css" />
+    <link rel="stylesheet" href="assets/css/rj.min.css" />
+  </head>
+  <body>
+    
+    <div class="container">
+    
+      <div class="row">
+        
+        <div class="span24 center bg arrow-down-steep" id="top">
+    
+          <div class="row rshadow">
+          
+            <div class="span7">
+    
+              <nav>
+              
+                <ul class="visible-desktop">
+                  <li><a href="#stats">Stats</a></li>
+                  <li><a href="#stories">Stories</a></li>
+                  <li><a href="#resources">Resources</a></li>
+                  <li><a href="#faq">FAQ</a></li>
+                </ul>
+              
+              </nav>
+              
+            </div>
+            
+            <div class="span10">
+              
+              <a href="/">
+                <h1>Rolling Jubilee</h1>
+                <img src="assets/img/fg_logo.png" alt="Rolling Jubilee" id="logo"/>
+              </a>
+            
+            </div>
+            
+            <div class="span7">
+    
+
+              
+            </div>
+            
+          </div>
+          
+          <div class="row">
+          
+            <div class="span10 offset7">
+          
+              <h3>Rolling Jubilee is a network of debtors who liberate debtors through mutual aid. We legally buy up debt for pennies on the dollar. Then instead of collecting it, we abolish it.</h3>
+          
+            </div>
+          
+          </div>
+          
+          <div id="social">
+            <a href="#"><img src="assets/img/fg_fb.png" alt="Facebook icon" /></a>
+            <a href="#"><img src="assets/img/fg_twitter.png" alt="Twitter icon" /></a>
+          </div>
+          
+        </div>
+        
+      </div>
+    
+      <div class="row">
+        
+        <div class="span24 center" id="stats">
+        
+          <div class="row">
+          
+            <div class="span8 hidden-phone">
+            
+              <div class="vis">
+            
+                <img src="assets/img/fg_vis1.png" />
+              
+              </div>
+            
+            </div>
+            
+            <div class="span8">
+            
+              <div class="vis">
+            
+                <img src="assets/img/fg_vis2.png" />
+              
+              </div>
+            
+            </div>
+            
+            <div class="span8">
+            
+              <div class="vis">
+            
+                <img src="assets/img/fg_vis3.png" />
+              
+              </div>
+            
+            </div>
+        
+          </div>
+          
+           <div class="row hidden-phone" id="number">
+          
+            <div class="span24">
+            
+              <img src="assets/img/fg_tuition-debt-is-over-one-trillion.png" alt="Tuition debt is over $1,000,000,000" />
+            
+            </div>
+        
+          </div>
+          
+          <div class="row">
+          
+            <div class="span8">
+            
+              <div class="vis">
+            
+                <img src="assets/img/fg_vis4.png" />
+              
+              </div>
+            
+            </div>
+            
+            <div class="span8">
+            
+              <div class="vis">
+            
+                <img src="assets/img/fg_vis5.png" />
+              
+              </div>
+            
+            </div>
+            
+            <div class="span8">
+            
+              <div class="vis">
+            
+                <img src="assets/img/fg_vis6.png" />
+              
+              </div>
+            
+            </div>
+        
+          </div>
+        
+        </div>
+        
+        <div class="span24 bg arrow-up">
+            
+            
+        </div>
+        
+        <div class="span24 center" id="stories">
+        
+          <h2>Stories</h2>
+          
+          <div id="videos-container">
+          
+            <script id="videos-template" type="text/x-handlebars-template">
+            
+              {{#each this}}
+              <div class="row">
+              
+                {{#each this}}
+                <div class="span6">
+                  <div class="inner">
+                    <a href="{{this.video_url}}" class="fancybox-media"><img src="{{this.thumbnail}}" width="235" height="160" /></a>
+                    <p><a href="{{this.video_url}}">{{this.video_name}}</a></p>
+                  </div>
+                </div>
+                {{/each}}
+                
+              </div>
+              {{/each}}
+              
+            </script>
+          
+          </div>
+                      
+        </div>
+        
+        <div class="span24 bg arrow-down">
+            
+          <p class="share">Have your own debt story? <a href="mailto:rollingjubilee@gmail.com">Share it with us</a>.</p>
+        
+        </div>
+        
+        <div class="span24" id="resources">
+        
+          <h2 class="center">Resources</h2>
+          
+          <div class="row">
+          
+            <div class="span14 offset5">
+          
+              <h3 class="center">We are collecting a list of resources to help people understand debt and link them to organizations dedicated to ending it. If you have additions please share them with us!</h3>
+          
+            </div>
+            
+          </div>
+                    
+          <div class="row">
+          
+            <div class="span7 offset1">
+            
+              <h3>Allies</h3>
+            
+              <ul id="allies-container">
+                
+                <script id="allies-template" type="text/x-handlebars-template">
+                  {{#each allies}}
+                
+                    <li><a href="{{this.url}}">{{this.name}}</a></li>
+                    
+                  {{/each}}
+                </script>
+              
+              </ul>
+            
+            </div>
+            
+            <div class="span7 offset1">
+            
+              <h3>Knowledge</h3>
+            
+              <ul id="knowledge-container">
+              
+                <script id="knowledge-template" type="text/x-handlebars-template">
+                  {{#each knowledge}}
+                
+                    <li><a href="{{this.url}}">{{this.name}}</a></li>
+                    
+                  {{/each}}
+                </script>
+              
+              </ul>
+            
+            </div>
+            
+            <div class="span6 offset1">
+            
+              <h3>Social Media</h3>
+            
+              <ul id="social-media-container">
+              
+                <script id="social-media-template" type="text/x-handlebars-template">
+                  {{#each social-media}}
+                
+                    <li><a href="{{this.url}}">{{this.name}}</a></li>
+                    
+                  {{/each}}
+                </script>
+              
+              </ul>
+            
+            </div>
+            
+          </div>
+        
+        </div>
+        
+        <div class="span24 bg arrow-up">
+            
+            
+        </div>
+        
+        <div class="span24" id="faq">
+        
+          <h2 class="center">FAQ</h2>
+          
+          <div class="row">
+          
+            <div class="span11 offset1">
+            
+              <dl id="faq1-container">
+              
+                <script id="faq1-template" type="text/x-handlebars-template">
+                  {{#each faq1}}
+                
+                    <dt><dfn>{{this.question}}</dfn></dt>
+                    <dd>{{this.answer}}</dd>
+                    
+                  {{/each}}
+                </script>
+            
+              <dl>
+            
+            </div>
+            
+            <div class="span10 offset1">
+            
+              <dl id="faq2-container">
+              
+                <script id="faq2-template" type="text/x-handlebars-template">
+                  {{#each faq2}}
+                
+                    <dt><dfn>{{this.question}}</dfn></dt>
+                    <dd>{{this.answer}}</dd>
+                    
+                  {{/each}}
+                </script>
+            
+              <dl>
+            
+            </div>
+            
+            <div class="span24 center">
+            
+              <div id="contact">
+                Have more questions? <a href="mailto:rollingjubilee@gmail.com">Email us</a>.
+              </div>
+              
+            </div>
+          
+          </div>
+          
+        </div>
+      
+      </div>
+      
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/rj.min.js"></script>
+    
+  </body>
+</html>

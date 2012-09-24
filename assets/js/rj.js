@@ -90,7 +90,7 @@ var RJ = RJ || {
   
   }
   
-}
+};
 
 /**
  * When DOM is loaded...
@@ -106,11 +106,21 @@ $(function(){
   RJ.loadData('faq2', '6');
   
   $('.fancybox-media').fancybox({
-		openEffect  : 'none',
-		closeEffect : 'none',
-		helpers : {
-			media : {}
+		openEffect: 'none',
+		closeEffect: 'none',
+		helpers: {
+			media: {}
 		}
 	});
+	
+	// experience scroll
+  $("nav a").click(function(){
+    var el = $(this).attr('href'),
+        loc = $(el).offset().top - 20;
+    $("html,body").animate({
+        scrollTop: loc
+      }, 700);
+    return false;
+  });
   
 });

@@ -1,7 +1,3 @@
-.center {
-  text-align: center;
-}
-
 h2 {
   font-family: MenschBoldInline;
   font-size: 105px;
@@ -11,8 +7,49 @@ h2 {
   z-index: 9
 }
 
-h3 {
-  font-family: MenschRegular;
+h3, dt {
+  font-family: MenschThin;
+  line-height: 33px;
+  letter-spacing: -2px;
+}
+
+dfn {
+  font-style: normal;
+  font-size: 24px;
+}
+
+dt {
+  margin-bottom: 5px;
+}
+
+dd {
+  margin: 0 0 30px 0;
+  line-height: 30px;
+}
+
+/* nav */
+
+nav {
+  margin: 64px auto 0;
+  font-size: 18px;
+  font-family: MenschThin;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+  display: inline-block;
+}
+
+nav ul {
+  margin: 10px 0;
+}
+
+nav li {
+  list-style-type: none;
+  display: inline;
+}
+
+nav a {
+  text-decoration: none;
+  color: #999;
 }
 
 /* grid adjustments */
@@ -40,6 +77,7 @@ h3 {
 .bg.arrow-up {
   background-image: url(../img/bg_arrow-up.png);
   padding-bottom: 110px;
+  margin-top: -10px;
 }
 
 .bg.arrow-down {
@@ -50,7 +88,7 @@ h3 {
 .bg.arrow-down-steep {
   background-image: url(../img/bg_arrow-down-steep.png);
   background-position-y: bottom;
-  padding-bottom: 150px;
+  padding-bottom: 115px;
   margin-bottom: -120px;
 }
 
@@ -59,6 +97,59 @@ h3 {
 #top {
   color: #4d4d4f;
   position: relative;
+}
+
+#top h1 {
+  display: none;
+}
+
+#top .rshadow {
+  box-shadow: 10px 0px 25px -15px #000;
+}
+
+#top .lshadow {
+  box-shadow: -10px 0px 5px -2px #000;
+}
+
+#top #logo {
+  margin: 15px 0 10px;
+}
+
+#top h3 {
+  color: #4d4d4f;
+}
+
+#social {
+  margin-top: 20px;
+}
+
+#social a img {
+  padding: 0 15px;
+}
+
+#social a:last-child img {
+  border-left: 1px solid #ccc;
+}
+
+/* stats section */
+
+#stats {
+  background: transparent url(../img/bg_coin-logo.png) scroll no-repeat 48.5% 60%;
+}
+
+#stats #number {
+  line-height: 130px;
+  border-top: 1px dotted #999;
+  border-bottom: 1px dotted #999;
+}
+
+#stats .vis {
+  border-right: 1px dotted #999;
+  margin: 20px 0;
+}
+
+#stats .row .span8:last-child .vis {
+  border: none;
 }
 
 /* stories section */
@@ -70,21 +161,41 @@ h3 {
   position: relative;
 }
 
+#stories h2 {
+  color: #BE1E2D;
+  margin-bottom: 20px;
+}
+
 .share {
-  padding: 20px 0 75px;
+  padding: 20px 0 95px;
   margin: 0;
   color: #4d4d4f;
   font-style: italic;
   text-align: center;
+  font-size: 20px;
 }
 
 /* resources section */
 
-h3.center {
-  width: 820px;
-  line-height: 33px;
+#resources h3.center {
   color: #737577;
-  margin: 0 auto;
+}
+
+#resources ul {
+  margin: 0;
+}
+
+#resources li {
+  font-family: Georgia;
+  list-style-type: none;
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 3px;
+  margin-bottom: 10px;
+}
+
+#resources a {
+  color: #fff;
+  text-decoration: none;
 }
 
 /* faq section */
@@ -94,4 +205,24 @@ h3.center {
   color: #4d4d4f;
   box-shadow: 0 0 30px 0 #000;
   position: relative;
+}
+
+#faq h2 {
+  color: #BE1E2D;
+  margin-bottom: 20px;
+}
+
+/* misc. */
+
+.center {
+  text-align: center;
+}
+
+#contact {
+  font-style: italic;
+  margin: 20px 0;
+}
+
+#contact a {
+  color: #BE1E2D;
 }

@@ -1,5 +1,6 @@
 h2 {
   font-family: MenschBoldInline;
+  font-weight: normal;
   font-size: 105px;
   line-height: 80px;
   margin: 0;
@@ -8,14 +9,14 @@ h2 {
 }
 
 h3, dt {
-  font-family: MenschThin;
+  font-family: MenschRegular;
   line-height: 33px;
-  letter-spacing: -2px;
+  font-weight: normal;
+  font-size: 22px;
 }
 
 dfn {
   font-style: normal;
-  font-size: 24px;
 }
 
 dt {
@@ -31,7 +32,7 @@ dd {
 
 nav {
   margin: 64px auto 0;
-  font-size: 18px;
+  font-size: 16px;
   font-family: MenschThin;
   border-top: 1px solid #999;
   border-bottom: 1px solid #999;
@@ -52,20 +53,6 @@ nav a {
   color: #999;
 }
 
-/* grid adjustments */
-/*
-.row div {
-  text-align: center;
-}
-
-.row div:first-child {
-  text-align: right;
-}
-
-.row div:last-child {
-  text-align: left;
-}
-*/
 /* background effects */
 
 .bg {
@@ -82,12 +69,12 @@ nav a {
 
 .bg.arrow-down {
   background-image: url(../img/bg_arrow-down.png);
-  background-position-y: bottom;
+  background-position: center bottom;
 }
 
 .bg.arrow-down-steep {
   background-image: url(../img/bg_arrow-down-steep.png);
-  background-position-y: bottom;
+  background-position: center bottom;
   padding-bottom: 115px;
   margin-bottom: -120px;
 }
@@ -104,11 +91,7 @@ nav a {
 }
 
 #top .rshadow {
-  box-shadow: 10px 0px 25px -15px #000;
-}
-
-#top .lshadow {
-  box-shadow: -10px 0px 5px -2px #000;
+  -webkit-box-shadow: 10px 0px 25px -15px #000;
 }
 
 #top #logo {
@@ -171,6 +154,10 @@ nav a {
   text-decoration: none;
 }
 
+#stories p {
+  text-align: center;
+}
+
 .share {
   padding: 20px 0 95px;
   margin: 0;
@@ -178,6 +165,24 @@ nav a {
   font-style: italic;
   text-align: center;
   font-size: 20px;
+}
+
+/* grid adjustments */
+
+#videos-container .row div:first-child .inner {
+  margin: 0 0 0 40px;
+}
+
+#videos-container .row div:last-child .inner {
+  margin: 0 40px 0 0;
+}
+
+#videos-container .row div:nth-child(2) .inner {
+  margin: 0 15px 0 25px;
+}
+
+#videos-container .row div:nth-child(3) .inner {
+  margin: 0 25px 0 15px;
 }
 
 /* resources section */

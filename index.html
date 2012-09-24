@@ -9,7 +9,7 @@
     <meta name="description" content="Rolling Jubilee is a network of debtors who liberate debtors through mutual aid. We legally buy up debt for pennies on the dollar. then instead of collecting it, we abolish it." />
     <title>Rolling Jubilee</title>
     <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
     <link rel="stylesheet" href="assets/fonts/mensch/font.css" />
@@ -83,7 +83,7 @@
         
           <div class="row">
           
-            <div class="span8">
+            <div class="span8 hidden-phone">
             
               <div class="vis">
             
@@ -179,8 +179,10 @@
               
                 {{#each this}}
                 <div class="span6">
-                  <a href="{{this.video_url}}" class="fancybox-media"><img src="{{this.thumbnail}}" width="235" height="160" /></a>
-                  <p><a href="{{this.video_url}}">{{this.video_name}}</a></p>
+                  <div class="inner">
+                    <a href="{{this.video_url}}" class="fancybox-media"><img src="{{this.thumbnail}}" width="235" height="160" /></a>
+                    <p><a href="{{this.video_url}}">{{this.video_name}}</a></p>
+                  </div>
                 </div>
                 {{/each}}
                 

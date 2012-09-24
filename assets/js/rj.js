@@ -54,7 +54,7 @@ var RJ = RJ || {
         if(ampersandPosition != -1) {
           video_id = video_id.substring(0, ampersandPosition);
         }
-        data.videos[key].thumbnail = 'http://i3.ytimg.com/vi/' + video_id + '/0.jpg';
+        data.videos[key].thumbnail = 'https://i3.ytimg.com/vi/' + video_id + '/0.jpg';
       });
     }
     

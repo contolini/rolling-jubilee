@@ -47,6 +47,20 @@ h3 {
   background-position-y: bottom;
 }
 
+.bg.arrow-down-steep {
+  background-image: url(../img/bg_arrow-down-steep.png);
+  background-position-y: bottom;
+  padding-bottom: 150px;
+  margin-bottom: -120px;
+}
+
+/* top section */
+
+#top {
+  color: #4d4d4f;
+  position: relative;
+}
+
 /* stories section */
 
 #stories {
@@ -66,7 +80,7 @@ h3 {
 
 /* resources section */
 
-h3.collecting {
+h3.center {
   width: 820px;
   line-height: 33px;
   color: #737577;

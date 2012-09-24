@@ -1,3 +1,7 @@
+/**
+ * Namespace the main app
+ * 
+ */
 var RJ = RJ || {
   
   /**
@@ -88,13 +92,10 @@ var RJ = RJ || {
   
 }
 
-
-
-
-
-
-
-
+/**
+ * When DOM is loaded...
+ * 
+ */
 $(function(){
 
   RJ.loadData('videos', '1', 4);
@@ -113,4 +114,3 @@ $(function(){
 	});
   
 });
-

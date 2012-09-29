@@ -53,6 +53,14 @@ nav a {
   color: #999;
 }
 
+/* wepay button */
+
+.wepay-container {
+  width: 45px;
+  text-align: center;
+  margin: 15px auto 0;
+}
+
 /* background effects */
 
 .bg {

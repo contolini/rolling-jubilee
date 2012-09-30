@@ -1,3 +1,5 @@
+/* global stuff */
+
 h2 {
   font-family: MenschBoldInline;
   font-weight: normal;
@@ -53,7 +55,7 @@ nav a {
   color: #999;
 }
 
-/* background effects */
+/* backgrounds */
 
 .bg {
   background: transparent url(../img/bg_arrow-up.png) scroll no-repeat center top;
@@ -79,7 +81,7 @@ nav a {
   margin-bottom: -120px;
 }
 
-/* top section */
+/* top header section */
 
 #top {
   color: #4d4d4f;

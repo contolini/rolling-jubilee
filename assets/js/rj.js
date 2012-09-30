@@ -130,7 +130,7 @@ $(function(){
   $('.counter').jOdometer({
     increment: 0,
     counterStart:'1',
-    numbersImage: '/rollingjubilee.org/assets/img/jodometer-numbers-24pt.png',
+    numbersImage: '/assets/img/jodometer-numbers-24pt.png',
     widthNumber: 32,
     heightNumber: 54,
     spaceNumbers: 0,

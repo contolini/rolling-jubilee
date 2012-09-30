@@ -99,6 +99,7 @@ var RJ = RJ || {
  */
 $(function(){
 
+  // load all the different worksheets
   RJ.loadData('videos', '1', 4);
   RJ.loadData('allies', '2');
   RJ.loadData('knowledge', '3');
@@ -116,13 +117,27 @@ $(function(){
 	});
 
   // scroll when nav items are clicked
-  $("nav a").click(function(){
+  $("nav.main a").click(function(){
     var el = $(this).attr('href'),
         loc = $(el).offset().top - 20;
     $("html,body").animate({
         scrollTop: loc
       }, 700);
     return false;
+  });
+
+  // jquery odometer
+  $('.counter').jOdometer({
+    increment: 0,
+    counterStart:'1',
+    numbersImage: '/rollingjubilee.org/assets/img/jodometer-numbers-24pt.png',
+    widthNumber: 32,
+    heightNumber: 54,
+    spaceNumbers: 0,
+    offsetRight:-10,
+    maxDigits: 5,
+    prefixChar: true,
+    delayTime: 0
   });
 
 });

@@ -28,7 +28,7 @@
 
             <div class="span7">
 
-              <nav>
+              <nav class="main">
 
                 <ul class="visible-desktop">
                   <li><a href="#stats">Stats</a></li>
@@ -52,9 +52,13 @@
 
             <div class="span7">
 
-              <div class="wepay-container">
-<a class="wepay-widget-button wepay-green" id="wepay_widget_anchor_5066d4c66de00" href="https://www.wepay.com/donations/17810">Donate</a>
-              </div>
+              <nav id="contribute">
+
+                <ul>
+                  <li><a href="#contribute">Contribute to the Jubilee!</a></li>
+                </ul>
+
+              </nav>
 
             </div>
 
@@ -63,6 +67,10 @@
           <div class="row">
 
             <div class="span10 offset7">
+
+              <div class="counter-container">
+                <div class="counter"></div>
+              </div>
 
               <h3>Rolling Jubilee is a network of debtors who liberate debtors through mutual aid. We legally buy up debt for pennies on the dollar. Then instead of collecting it, we abolish it.</h3>
 
@@ -275,6 +283,8 @@
 
           </div>
 
+          <p class="share">Something to add? <a href="mailto:rollingjubilee@gmail.com">Let us know!</a></p>
+
         </div>
 
         <div class="span24 bg arrow-up">
@@ -338,30 +348,9 @@
 
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="http://www.kindel.com/demos/jOdometer/jquery.jodometer.min.js" type="text/javascript"></script>
     <script src="assets/js/rj.min.js"></script>
-    <script type="text/javascript">
-      var WePay = WePay || {};
-      WePay.load_widgets = WePay.load_widgets || function() { };
-      WePay.widgets = WePay.widgets || [];
-      WePay.widgets.push( {
-        object_id: 17810,
-        widget_type: "donation_campaign",
-        anchor_id: "wepay_widget_anchor_5066d4c66de00",
-        widget_options: {
-          allow_cover_fee: true,
-          enable_recurring: true,
-          allow_anonymous: true,
-          button_text: "Donate"
-        }
-      });
-      if (!WePay.script) {
-        WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;
-        WePay.script.src = 'https://static.wepay.com/min/js/widgets.v2.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);
-      } else if (WePay.load_widgets) {
-        WePay.load_widgets();
-      }
-    </script>
+
   </body>
 </html>

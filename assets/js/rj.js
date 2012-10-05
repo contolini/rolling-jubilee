@@ -129,8 +129,8 @@ $(function(){
   // jquery odometer
   var counter = $('.counter').jOdometer({
     increment: 1,
-    delayTime: 1000,
-    counterStart: '12570',
+    delayTime: 500,
+    counterStart: '12575',
     counterEnd: '12578',
     numbersImage: 'http://rollingjubilee.org/assets/img/jodometer-numbers-24pt.png',
     widthNumber: 32,

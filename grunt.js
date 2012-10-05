@@ -19,12 +19,12 @@ module.exports = function(grunt) {
     },
     min: {
       dist: {
-        src: ['<banner:meta.banner>', 'assets/js/miso.ds.deps.min.0.2.2.js', 'assets/js/handlebars-1.0.rc.1.js', 'assets/js/fancybox/jquery.fancybox.pack.js', 'assets/js/fancybox/helpers/jquery.fancybox-media.js', 'assets/js/bootstrap.js', 'assets/js/rj.js'],
+        src: ['<banner:meta.banner>', 'assets/js/miso.ds.deps.min.0.2.2.js', 'assets/js/handlebars-1.0.rc.1.js', 'assets/js/jquery.jodometer.js', 'assets/js/fancybox/jquery.fancybox.pack.js', 'assets/js/fancybox/helpers/jquery.fancybox-media.js', 'assets/js/bootstrap.js', 'assets/js/rj.js'],
         dest: 'assets/js/rj.min.js'
       }
     },
     watch: {
-      files: ['assets/css/bootstrap.css', 'assets/css/rj.css', 'assets/js/miso.ds.deps.min.0.2.2.js', 'assets/js/handlebars-1.0.rc.1.js', 'assets/js/fancybox/jquery.fancybox.pack.js', 'assets/js/fancybox/helpers/jquery.fancybox-media.js', 'assets/js/bootstrap.js', 'assets/js/rj.js'],
+      files: ['assets/css/rj.css', 'assets/js/rj.js', 'grunt.js'],
       tasks: 'default'
     }
   });

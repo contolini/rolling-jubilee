@@ -265,21 +265,21 @@ nav a {
 /* jquery odometer counter */
 
 .counter-container {
-  height:55px;
-  overflow:hidden;
-  position:relative;
+  height: 55px;
+  overflow: hidden;
+  position: relative;
   border: 1px solid #ccc;
   border-radius: 2px;
   background-image: url('../img/jodometer-background.jpg');
   background-repeat: repeat-x;
-  width: 320px;
+  width: 288px;
   margin: 15px auto 20px;
 }
 
 .counter {
-  width:100%;
-  height:55px;
-  overflow:hidden;
-  position:relative;
-  background-color:transparent;
+  width: 100%;
+  height: 55px;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
 }

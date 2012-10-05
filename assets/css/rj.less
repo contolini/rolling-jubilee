@@ -1,0 +1,270 @@
+/* global stuff */
+
+@white: #fff;
+@red: #be1e2d;
+@light-gray: #ccc;
+@gray: #999;
+@dark-gray: #4d4d4f;
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-family: MenschBoldInline;
+  font-weight: normal;
+  font-size: 105px;
+  line-height: 80px;
+  margin: 0;
+  position: relative;
+  z-index: 9
+}
+
+h3, dt {
+  font-family: MenschRegular;
+  line-height: 33px;
+  font-weight: normal;
+  font-size: 22px;
+}
+
+dfn {
+  font-style: normal;
+}
+
+dt {
+  margin-bottom: 5px;
+}
+
+dd {
+  margin: 0 0 30px 0;
+  line-height: 30px;
+}
+
+/* nav */
+
+nav {
+  margin: 64px auto 0;
+  font-size: 16px;
+  font-family: MenschThin;
+  border-top: 1px solid @gray;
+  border-bottom: 1px solid @gray;
+  display: inline-block;
+  ul {
+    margin: 10px 0;
+  }
+  li {
+    list-style-type: none;
+    display: inline;
+  }
+  a {
+    color: @gray;
+  }
+}
+
+#contribute a {
+  color: @red;
+  font-family: MenschBold;
+}
+
+/* remove the top margin on smaller screens */
+
+@media (max-width: 767px) {
+  nav {
+    margin: 10px auto;
+  }
+}
+
+/* backgrounds */
+
+.bg {
+  background: transparent url(../img/bg_arrow-up.png) scroll no-repeat center top;
+  z-index: 5;
+  position: relative;
+  &.arrow-up {
+    background-image: url(../img/bg_arrow-up.png);
+    padding-bottom: 110px;
+    margin-top: -10px;
+  }
+  &.arrow-down {
+    background-image: url(../img/bg_arrow-down.png);
+    background-position: center bottom;
+  }
+  &.arrow-down-steep {
+    background-image: url(../img/bg_arrow-down-steep.png);
+    background-position: center bottom;
+    padding-bottom: 115px;
+    margin-bottom: -120px;
+  }
+}
+
+/* top header section */
+
+#top {
+  color: @dark-gray;
+  position: relative;
+  h1 {
+    display: none;
+  }
+  h3 {
+    color: @dark-gray;
+  }
+  .rshadow {
+    -webkit-box-shadow: 10px 0px 25px -15px #000;
+  }
+  #logo {
+    margin: 15px 0 10px;
+  }
+}
+
+#social {
+  margin-top: 20px;
+  a img {
+    padding: 0 15px;
+  }
+  a:last-child img {
+    border-left: 1px solid @light-gray;
+  }
+}
+
+/* stats section */
+
+#stats {
+  background: transparent url(../img/bg_coin-logo.png) scroll no-repeat 48.5% 60%;
+  #number {
+    line-height: 130px;
+    border-top: 1px dotted @gray;
+    border-bottom: 1px dotted @gray;
+  }
+  .vis {
+    border-right: 1px dotted @gray;
+    margin: 20px 0;
+  }
+  .row .span8:last-child .vis {
+    border: none;
+  }
+}
+
+/* stories section */
+
+#stories {
+  background-color: @white;
+  color: @dark-gray;
+  box-shadow: 0 0 30px 0 #000;
+  position: relative;
+  h2 {
+    color: @red;
+    margin-bottom: 20px;
+  }
+  a {
+    font-weight: bold;
+  }
+  p {
+    text-align: center;
+  }
+}
+
+.share {
+  padding: 20px 0 95px;
+  margin: 0;
+  color: @dark-gray;
+  font-style: italic;
+  text-align: center;
+  font-size: 20px;
+  a {
+    color: @red;
+  }
+}
+
+/* grid adjustments */
+
+#videos-container {
+  .row div:first-child .inner {
+    margin: 0 0 0 40px;
+  }
+  .row div:last-child .inner {
+    margin: 0 40px 0 0;
+  }
+  .row div:nth-child(2) .inner {
+    margin: 0 15px 0 25px;
+  }
+  .row div:nth-child(3) .inner {
+    margin: 0 25px 0 15px;
+  }
+}
+
+/* resources section */
+
+#resources {
+  h3.center {
+    color: #9c9c9c;
+  }
+  ul {
+    margin: 0;
+  }
+  li {
+    font-family: Georgia;
+    list-style-type: none;
+    border-bottom: 1px dotted @light-gray;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+  a {
+    color: @white;
+  }
+  .share {
+    padding: 0;
+    color: #9c9c9c;
+    font-family: Georgia;
+    font-size: inherit;
+  }
+}
+
+/* faq section */
+
+#faq {
+  background-color: @white;
+  color: @dark-gray;
+  box-shadow: 0 0 30px 0 #000;
+  position: relative;
+  h2 {
+    color: @red;
+    margin-bottom: 20px;
+  }
+}
+
+
+/* misc. */
+
+.center {
+  text-align: center;
+}
+
+#contact {
+  font-style: italic;
+  margin: 20px 0;
+  a {
+    color: @red;
+  }
+}
+
+/* jquery odometer counter */
+
+.counter-container {
+  height: 55px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid @light-gray;
+  border-radius: 2px;
+  background-image: url('../img/jodometer-background.jpg');
+  background-repeat: repeat-x;
+  width: 288px;
+  margin: 15px auto 20px;
+}
+
+.counter {
+  width: 100%;
+  height: 55px;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}

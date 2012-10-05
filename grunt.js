@@ -11,10 +11,14 @@ module.exports = function(grunt) {
         '* Copyright (c) <%= grunt.template.today("yyyy") %> ' +
         'Chris Contolini; Licensed MIT */'
     },
-    cssmin: {
-      dist: {
-        src: ['<banner:meta.banner>', 'assets/css/bootstrap.css', 'assets/css/rj.css'],
-        dest: 'assets/css/rj.min.css'
+    less: {
+      production: {
+        options: {
+          yuicompress: true
+        },
+        files: {
+          'assets/css/rj.min.css': ['assets/css/bootstrap.css', 'assets/css/rj.less']
+        }
       }
     },
     min: {
@@ -24,14 +28,14 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['assets/css/rj.css', 'assets/js/rj.js', 'grunt.js'],
+      files: ['assets/css/rj.less', 'assets/js/rj.js', 'grunt.js'],
       tasks: 'default'
     }
   });
 
-  grunt.loadNpmTasks('grunt-css');
+  grunt.loadNpmTasks('grunt-contrib-less');
 
   // Default task.
-  grunt.registerTask('default', 'min cssmin');
+  grunt.registerTask('default', 'less min');
 
 };

@@ -127,17 +127,18 @@ $(function(){
   });
 
   // jquery odometer
-  $('.counter').jOdometer({
-    increment: 0,
-    counterStart:'1',
+  var counter = $('.counter').jOdometer({
+    increment: 1,
+    delayTime: 1000,
+    counterStart: '12570',
+    counterEnd: '12578',
     numbersImage: 'http://rollingjubilee.org/assets/img/jodometer-numbers-24pt.png',
     widthNumber: 32,
     heightNumber: 54,
     spaceNumbers: 0,
     offsetRight: -10,
     maxDigits: 10,
-    prefixChar: true,
-    delayTime: 0
+    prefixChar: true
   });
 
 });

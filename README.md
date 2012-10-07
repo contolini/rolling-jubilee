@@ -7,10 +7,10 @@ Rolling Jubilee is a network of debtors who liberate debtors through mutual aid.
 
 ## To Contribute
 
-Install [Node.js](http://nodejs.org/) and [grunt](https://github.com/gruntjs/grunt#installing-grunt) and then:
+Install [Node.js](http://nodejs.org/) and [grunt](https://github.com/gruntjs/grunt#installing-grunt), fork this repo and:
 
 ```
-$ git clone https://github.com/contolini/rolling-jubilee.git
+$ git clone https://github.com/your-username/rolling-jubilee.git
 $ cd rolling-jubilee
 $ grunt watch
 ```

@@ -5,6 +5,18 @@ Website for Rolling Jubilee. Uses [Google Drive API](https://developers.google.c
 
 Rolling Jubilee is a network of debtors who liberate debtors through mutual aid. We legally buy up debt for pennies on the dollar. then instead of collecting it, we abolish it.
 
+## To Contribute
+
+Install [Node.js](http://nodejs.org/) and [grunt](https://github.com/gruntjs/grunt#installing-grunt) and then:
+
+```
+$ git clone https://github.com/contolini/rolling-jubilee.git
+$ cd rolling-jubilee
+$ grunt watch
+```
+
+Whenever you edit rj.less or rj.js, grunt will automatically compile/concat/minify all assets.
+
 ## License
 
 Copyright (c) 2012 Rolling Jubilee

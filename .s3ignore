@@ -1,0 +1,4 @@
+node_modules
+.git
+.s3ignore
+.DS_Store

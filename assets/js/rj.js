@@ -89,7 +89,29 @@ var RJ = RJ || {
     }
     return result;
 
-  }
+  },
+
+  /**
+   * Twitter tool
+   *
+   */
+   twitter: {
+
+    defaults: {
+      tweet: 'On November 15: Remember, remember, debt is not forever. #RollingJubilee #PeoplesBailout @StrikeDebt'
+    },
+
+    getTwitterURL: function(target, status) {
+      var base = 'https://twitter.com/home?',
+          status = (status !== undefined) ? status : RJ.twitter.defaults.tweet,
+          url = 'http://ow.ly/eT6fr';
+      if (target !== undefined) {
+        return base + 'status=.' + encodeURIComponent(target + ' ' + status + ' ' + url);
+      }
+      return base + 'status=' + encodeURIComponent(status + ' ' + url);
+    }
+
+   }
 
 };
 

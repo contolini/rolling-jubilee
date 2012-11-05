@@ -27,7 +27,7 @@ var RJ = RJ || {
     });
 
     ds.fetch({
-      success : function() {
+      success: function() {
         this.each(function(row) {
           data.push(row);
         });
@@ -57,6 +57,15 @@ var RJ = RJ || {
         }
         data.videos[key].thumbnail = 'https://i3.ytimg.com/vi/' + video_id + '/0.jpg';
       });
+    }
+
+    if (name === 'counters') {
+      console.log(data);
+      RJ.counter.options.counterStart = data.counters[1].amount - 3;
+      RJ.counter.options.counterEnd = data.counters[1].amount;
+      $('.counter').jOdometer(RJ.counter.options);
+      $('.donations').html(RJ.commify(data.counters[0].amount));
+      return;
     }
 
     // if columns have been specified, transform the array
@@ -89,7 +98,55 @@ var RJ = RJ || {
     }
     return result;
 
-  }
+  },
+
+  /**
+   * Utility function for adding commas to numbers
+   *
+   */
+  commify: function (x) {
+      return '$' + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  },
+
+  /**
+   * Counter
+   *
+   */
+  counter: {
+    options: {
+      increment: 1,
+      delayTime: 500,
+      counterStart: 0,
+      counterEnd: 0,
+      numbersImage: 'http://rollingjubilee.org/assets/img/jodometer-numbers-24pt.png',
+      widthNumber: 32,
+      heightNumber: 54,
+      spaceNumbers: 0,
+      offsetRight: -10,
+      maxDigits: 10,
+      prefixChar: true
+    }
+  },
+
+  /**
+   * Twitter tool
+   *
+   */
+   twitter: {
+
+    tweet: 'On November 15: Remember, remember, debt is not forever. #RollingJubilee #PeoplesBailout @StrikeDebt',
+
+    getURL: function(target, status) {
+      var base = 'https://twitter.com/home?',
+          status = (status !== undefined) ? status : RJ.twitter.tweet,
+          url = 'http://ow.ly/eT6fr';
+      if (target !== undefined) {
+        return base + 'status=.' + encodeURIComponent(target + ' ' + status + ' ' + url);
+      }
+      return base + 'status=' + encodeURIComponent(status + ' ' + url);
+    }
+
+   }
 
 };
 
@@ -106,6 +163,7 @@ $(function(){
   RJ.loadData('social-media', '4');
   RJ.loadData('faq1', '5');
   RJ.loadData('faq2', '6');
+  RJ.loadData('counters', '7');
 
   // fancy box modals
   $('.fancybox-media').fancybox({
@@ -117,7 +175,7 @@ $(function(){
 	});
 
   // scroll when nav items are clicked
-  $("nav.main a").click(function(){
+  $(document).on('click', 'nav.main a, a.scroll', function() {
     var el = $(this).attr('href'),
         loc = $(el).offset().top - 20;
     $("html,body").animate({
@@ -126,19 +184,34 @@ $(function(){
     return false;
   });
 
-  // jquery odometer
-  var counter = $('.counter').jOdometer({
-    increment: 1,
-    delayTime: 500,
-    counterStart: '12575',
-    counterEnd: '12578',
-    numbersImage: 'http://rollingjubilee.org/assets/img/jodometer-numbers-24pt.png',
-    widthNumber: 32,
-    heightNumber: 54,
-    spaceNumbers: 0,
-    offsetRight: -10,
-    maxDigits: 10,
-    prefixChar: true
+  $(document).on('click', '.journalists li', function() {
+    $(this).addClass('selected').siblings().removeClass('selected');
+    RJ.twitter.target = $(this).find('.username').text();
+    $('.go a').attr('href', RJ.twitter.getURL(RJ.twitter.target, RJ.twitter.tweet));
+    $('.go textarea').val(RJ.twitter.tweet);
+    $('.statuses').slideDown();
+    /*
+    var loc = $('.statuses').offset().top;
+    $("html,body").animate({
+        scrollTop: loc
+      }, 300);
+    */
+    return false;
+  });
+
+  $(document).on('click', '.statuses li', function() {
+    $(this).addClass('selected').siblings().removeClass('selected');
+    RJ.twitter.tweet = $(this).find('span').text();
+    $('.go a').attr('href', RJ.twitter.getURL(RJ.twitter.target, RJ.twitter.tweet));
+    $('.go textarea').val(RJ.twitter.tweet);
+    $('.go').slideDown();
+    /*
+    var loc = $('.go').offset().top;
+    $("html,body").animate({
+        scrollTop: loc
+      }, 300);
+    */
+    return false;
   });
 
 });

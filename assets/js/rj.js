@@ -190,12 +190,10 @@ $(function(){
     $('.go a').attr('href', RJ.twitter.getURL(RJ.twitter.target, RJ.twitter.tweet));
     $('.go textarea').val(RJ.twitter.tweet);
     $('.statuses').slideDown();
-    /*
     var loc = $('.statuses').offset().top;
     $("html,body").animate({
         scrollTop: loc
       }, 300);
-    */
     return false;
   });
 
@@ -205,12 +203,10 @@ $(function(){
     $('.go a').attr('href', RJ.twitter.getURL(RJ.twitter.target, RJ.twitter.tweet));
     $('.go textarea').val(RJ.twitter.tweet);
     $('.go').slideDown();
-    /*
-    var loc = $('.go').offset().top;
+    var loc = $('.go').offset().top - 30;
     $("html,body").animate({
         scrollTop: loc
       }, 300);
-    */
     return false;
   });
 

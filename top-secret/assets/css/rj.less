@@ -94,6 +94,22 @@ nav {
   nav {
     margin: 10px auto;
   }
+  .row {
+    .statuses {
+      li {
+        font-size: 14px;
+      }
+    }
+    .go {
+      .btn {
+        width: 100%;
+      }
+      textarea {
+        width: 100%;
+        font-size: 1em;
+      }
+    }
+  }
 }
 
 /* backgrounds */
@@ -212,7 +228,7 @@ nav {
     overflow: hidden;
     text-align: center;
     border: 3px solid #eee;
-    margin: 5px 10px;
+    margin: 5px 9px;
     box-shadow: 0 1px 4px #000;
     cursor: pointer;
     &.selected {
@@ -247,10 +263,10 @@ nav {
     margin-left: 0;
   }
   li {
-    margin: 5px 0;
-    font-size: 15px;
-    border: 3px solid #eee;
-    padding: 10px;
+    margin: 7px 0;
+    font-size: 18px;
+    border: 3px solid @gray;
+    padding: 15px;
     cursor: pointer;
     border-radius: 10px;
     box-shadow: 0 1px 4px #000;
@@ -279,6 +295,7 @@ nav {
     padding: 35px 0;
     font-size: 2em;
     width: 25%;
+    min-width: 150px;
   }
   textarea {
     height: 80px;
@@ -389,6 +406,10 @@ nav {
   text-align: center;
 }
 
+.confirm {
+  color: @gray;
+}
+
 #contact {
   font-style: italic;
   margin: 20px 0;
@@ -421,6 +442,7 @@ nav {
 
 .counter-text {
   font-size: 20px;
+  line-height: 1em;
   font-family: MenschRegular;
   font-weight: normal;
   &.pre {

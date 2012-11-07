@@ -60,7 +60,6 @@ var RJ = RJ || {
     }
 
     if (name === 'counters') {
-      console.log(data);
       RJ.counter.options.counterStart = data.counters[1].amount - 3;
       RJ.counter.options.counterEnd = data.counters[1].amount;
       $('.counter').jOdometer(RJ.counter.options);
@@ -73,9 +72,13 @@ var RJ = RJ || {
       data = RJ.transform(data[name], columns);
     }
 
-    var source = $('#' + name + '-template').html(),
-        template = Handlebars.compile(source);
-    $('#' + name + '-container').append(template(data));
+    if ($('#' + name + '-template').length > 0) {
+
+      var source = $('#' + name + '-template').html(),
+          template = Handlebars.compile(source);
+      $('#' + name + '-container').append(template(data));
+
+    }
 
   },
 
@@ -208,6 +211,10 @@ $(function(){
         scrollTop: loc
       }, 300);
     return false;
+  });
+
+  $(document).on('click', '#sample-tweets li', function() {
+    location.href = RJ.twitter.getURL(undefined, $(this).find('span').text());
   });
 
 });

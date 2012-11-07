@@ -2,12 +2,17 @@
 
 @white: #fff;
 @red: #be1e2d;
+@light-red: #ff9999;
 @light-gray: #ccc;
 @gray: #999;
 @dark-gray: #4d4d4f;
+@yellow: #ffd204;
+@light-yellow: #ffc;
+@black: #000;
 
 a {
   text-decoration: none;
+  color: @red;
 }
 
 h2 {
@@ -30,9 +35,16 @@ h3, dt {
 .intro {
   h3 {
     font-size: 18px;
+    a {
+      color: @red;
+    }
   }
   .sub {
+    margin-top: 40px;
     font-size: 26px;
+  }
+  .donations {
+    font-weight: bold;
   }
 }
 
@@ -66,7 +78,8 @@ nav {
     display: inline;
   }
   a {
-    color: @gray;
+    color: @red;
+    font-family: MenschBold;
   }
 }
 
@@ -80,6 +93,22 @@ nav {
 @media (max-width: 767px) {
   nav {
     margin: 10px auto;
+  }
+  .row {
+    .statuses {
+      li {
+        font-size: 14px;
+      }
+    }
+    .go {
+      .btn {
+        width: 100%;
+      }
+      textarea {
+        width: 100%;
+        font-size: 1em;
+      }
+    }
   }
 }
 
@@ -103,6 +132,12 @@ nav {
     background-position: center bottom;
     padding-bottom: 115px;
     margin-bottom: -120px;
+  }
+}
+
+#join-the-team {
+  .bg.arrow-down-steep {
+    margin-bottom: 0;
   }
 }
 
@@ -153,9 +188,9 @@ nav {
   }
 }
 
-/* stories section */
+/* stories, party section */
 
-#stories {
+#stories, #party {
   background-color: @white;
   color: @dark-gray;
   box-shadow: 0 0 30px 0 #000;
@@ -181,6 +216,106 @@ nav {
   font-size: 20px;
   a {
     color: @red;
+  }
+}
+
+/* twitter */
+
+.journalists {
+  margin: 0;
+  img {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+  li {
+    border-radius: 10px;
+    display: inline-block;
+    padding: 10px 0;
+    width: 120px;
+    overflow: hidden;
+    text-align: center;
+    border: 3px solid #eee;
+    margin: 5px 9px;
+    box-shadow: 0 1px 4px #000;
+    cursor: pointer;
+    &.selected {
+      border: 3px solid @red;
+      color: @black;
+      background-color: @white;
+      &:hover {
+        border: 3px solid @red;
+        color: @black;
+        background-color: @white;
+      }
+    }
+    &:hover {
+      border: 3px solid @red;
+    }
+    span {
+      display: block;
+      margin: 0;
+      padding: 0;
+      line-height: 1em;
+    }
+    .username {
+      font-size: 10px;
+    }
+  }
+}
+
+.statuses, #sample-tweets {
+  display: none;
+  margin-top: 20px;
+  ul {
+    margin-left: 0;
+  }
+  li {
+    margin: 7px 0;
+    font-size: 18px;
+    border: 3px solid @gray;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px #000;
+    list-style-type: none;
+    &.selected {
+      border: 3px solid @red;
+      color: @black;
+      background-color: @white;
+      &:hover {
+        border: 3px solid @red;
+        color: @black;
+        background-color: @white;
+      }
+    }
+    &:hover {
+      border: 3px solid @red;
+    }
+  }
+}
+
+#sample-tweets {
+  display: block;
+}
+
+.go {
+  display: none;
+  margin: 30px 0 50px;
+  .btn {
+    //padding: 35px 50px;
+    padding: 35px 0;
+    font-size: 2em;
+    width: 25%;
+    min-width: 150px;
+  }
+  textarea {
+    height: 80px;
+    //width: 510px;
+    width: 70%;
+    border-radius: 10px;
+    border: 3px solid @gray;
+    font-size: 1.5em;
+    color: @black;
+    line-height: 1.5em;
   }
 }
 
@@ -241,11 +376,48 @@ nav {
   }
 }
 
+/* ready to contribute section */
+
+#ready {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  h3.center {
+    margin: 20px 0;
+    color: #9c9c9c;
+  }
+  #wepay {
+    text-align: center;
+    background: transparent url(../img/bg_red-arrows-pointing.png) scroll no-repeat center center;
+    input {
+      margin: 0 auto 10px;
+    }
+    margin: 60px 0;
+  }
+  li {
+    list-style-type: none;
+    text-align: center;
+    margin-top: 20px;
+    font-family: MenschRegular;
+    font-size: 18px;
+  }
+}
+
+/* bottom section */
+
+#bottom {
+  background-color: @white;
+  text-align: center;
+  color: @black;
+}
 
 /* misc. */
 
 .center {
   text-align: center;
+}
+
+.confirm {
+  color: @gray;
 }
 
 #contact {
@@ -267,7 +439,7 @@ nav {
   background-image: url('../img/jodometer-background.jpg');
   background-repeat: repeat-x;
   width: 288px;
-  margin: 15px auto 20px;
+  margin: 0 auto;
 }
 
 .counter {
@@ -276,4 +448,18 @@ nav {
   overflow: hidden;
   position: relative;
   background-color: transparent;
+}
+
+.counter-text {
+  font-size: 20px;
+  line-height: 1em;
+  font-family: MenschRegular;
+  font-weight: normal;
+  &.pre {
+    font-size: 40px;
+    margin: 50px 0 30px;
+  }
+  &.post {
+    margin: 20px 0 40px;
+  }
 }

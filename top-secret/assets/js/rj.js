@@ -59,8 +59,8 @@ var RJ = RJ || {
       });
     }
 
+    // the counter text is kinda weird so we do some special stuff
     if (name === 'counters') {
-      console.log(data);
       RJ.counter.options.counterStart = data.counters[1].amount - 3;
       RJ.counter.options.counterEnd = data.counters[1].amount;
       $('.counter').jOdometer(RJ.counter.options);
@@ -73,9 +73,15 @@ var RJ = RJ || {
       data = RJ.transform(data[name], columns);
     }
 
-    var source = $('#' + name + '-template').html(),
-        template = Handlebars.compile(source);
-    $('#' + name + '-container').append(template(data));
+    // check to see if the template exists
+    if ($('#' + name + '-template').length > 0) {
+
+      // if it does, do the handlebars magic
+      var source = $('#' + name + '-template').html(),
+          template = Handlebars.compile(source);
+      $('#' + name + '-container').append(template(data));
+
+    }
 
   },
 
@@ -184,6 +190,7 @@ $(function(){
     return false;
   });
 
+  // clicking on a journo's mug
   $(document).on('click', '.journalists li', function() {
     $(this).addClass('selected').siblings().removeClass('selected');
     RJ.twitter.target = $(this).find('.username').text();
@@ -197,17 +204,17 @@ $(function(){
     return false;
   });
 
+  // clicking on a tweet under the journos
   $(document).on('click', '.statuses li', function() {
     $(this).addClass('selected').siblings().removeClass('selected');
     RJ.twitter.tweet = $(this).find('span').text();
-    $('.go a').attr('href', RJ.twitter.getURL(RJ.twitter.target, RJ.twitter.tweet));
-    $('.go textarea').val(RJ.twitter.tweet);
-    $('.go').slideDown();
-    var loc = $('.go').offset().top - 30;
-    $("html,body").animate({
-        scrollTop: loc
-      }, 300);
+    location.href = RJ.twitter.getURL(RJ.twitter.target, RJ.twitter.tweet);
     return false;
+  });
+
+  // for the join-the-team page
+  $(document).on('click', '#sample-tweets li', function() {
+    location.href = RJ.twitter.getURL(undefined, $(this).find('span').text());
   });
 
 });

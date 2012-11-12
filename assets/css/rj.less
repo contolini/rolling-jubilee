@@ -78,38 +78,29 @@ nav {
     display: inline;
   }
   a {
-    color: @red;
     font-family: MenschBold;
+    color: @black;
+  }
+  em {
+    font-style: normal;
+    color: @red;
+  }
+  &.single {
+    display: none;
+    a {
+      border-right: 1px solid @gray;
+      padding-right: 8px;
+      &.last {
+        border: 0;
+        padding-right: 0;
+      }
+    }
   }
 }
 
 #contribute a {
   color: @red;
   font-family: MenschBold;
-}
-
-/* remove the top margin on smaller screens */
-
-@media (max-width: 767px) {
-  nav {
-    margin: 10px auto;
-  }
-  .row {
-    .statuses {
-      li {
-        font-size: 14px;
-      }
-    }
-    .go {
-      .btn {
-        width: 100%;
-      }
-      textarea {
-        width: 100%;
-        font-size: 1em;
-      }
-    }
-  }
 }
 
 /* backgrounds */
@@ -155,12 +146,15 @@ nav {
   .rshadow {
     -webkit-box-shadow: 10px 0px 25px -15px #000;
   }
+  .logo {
+    margin-top: 15px;
+  }
   #logo {
     margin: 15px 0 10px;
   }
 }
 
-#social {
+.social {
   margin-top: 20px;
   a img {
     padding: 0 15px;
@@ -188,9 +182,9 @@ nav {
   }
 }
 
-/* stories, party section */
+/* videos, party section */
 
-#stories, #party {
+#videos, #party {
   background-color: @white;
   color: @dark-gray;
   box-shadow: 0 0 30px 0 #000;
@@ -204,6 +198,7 @@ nav {
   }
   p {
     text-align: center;
+    margin-top: 5px;
   }
 }
 
@@ -297,28 +292,6 @@ nav {
   display: block;
 }
 
-.go {
-  display: none;
-  margin: 30px 0 50px;
-  .btn {
-    //padding: 35px 50px;
-    padding: 35px 0;
-    font-size: 2em;
-    width: 25%;
-    min-width: 150px;
-  }
-  textarea {
-    height: 80px;
-    //width: 510px;
-    width: 70%;
-    border-radius: 10px;
-    border: 3px solid @gray;
-    font-size: 1.5em;
-    color: @black;
-    line-height: 1.5em;
-  }
-}
-
 /* grid adjustments */
 
 #videos-container {
@@ -378,7 +351,7 @@ nav {
 
 /* ready to contribute section */
 
-#ready {
+#contribute {
   margin-top: 30px;
   margin-bottom: 50px;
   h3.center {
@@ -386,12 +359,23 @@ nav {
     color: #9c9c9c;
   }
   #wepay {
+    border: 1px solid #999;
+    padding: 20px 0;
     text-align: center;
     background: transparent url(../img/bg_red-arrows-pointing.png) scroll no-repeat center center;
+    margin: 60px 0;
     input {
       margin: 0 auto 10px;
     }
-    margin: 60px 0;
+    a {
+      color: @white;
+      font-family: Helvetica,Arial,sans-serif;
+    }
+  }
+  #paypal {
+    text-align: center;
+    border: 1px solid #999;
+    padding: 20px 0;
   }
   li {
     list-style-type: none;
@@ -409,7 +393,7 @@ nav {
 
 /* bottom section */
 
-#bottom {
+#transparency {
   background-color: @white;
   text-align: center;
   color: @black;
@@ -425,7 +409,7 @@ nav {
   color: @gray;
 }
 
-#contact {
+.contact {
   font-style: italic;
   margin: 20px 0;
   a {
@@ -466,5 +450,67 @@ nav {
   }
   &.post {
     margin: 20px 0 40px;
+  }
+}
+
+#twitter-widget-0 {
+  width: 335px;
+}
+
+/* media queries */
+
+/* large desktop */
+@media (min-width: 1200px) {
+  .main.double {
+    display: inline-block;
+  }
+  .main.single {
+    display: none;
+  }
+  #top .logo {
+    margin-top: 0;
+  }
+}
+
+/* portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+  .main.double {
+    display: none;
+  }
+  .main.single {
+    display: inline-block;
+  }
+  nav {
+    margin: 10px auto;
+  }
+  #top .logo {
+    margin-top: 0;
+  }
+}
+
+/* landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  .main.double {
+    display: none;
+  }
+  .main.single {
+    display: inline-block;
+  }
+  nav {
+    margin: 10px auto;
+  }
+  .row {
+    .statuses {
+      li {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+/* landscape phones and down */
+@media (max-width: 480px) {
+  #top .logo {
+    margin-top: 0;
   }
 }

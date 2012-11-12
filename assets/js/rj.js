@@ -61,10 +61,10 @@ var RJ = RJ || {
 
     // the counter text is kinda weird so we do some special stuff
     if (name === 'counters') {
-      RJ.counter.options.counterStart = data.counters[1].amount - 3;
-      RJ.counter.options.counterEnd = data.counters[1].amount;
+      RJ.counter.options.counterStart = data.counters[0].amount - 3;
+      RJ.counter.options.counterEnd = data.counters[0].amount;
       $('.counter').jOdometer(RJ.counter.options);
-      $('.donations').html(RJ.commify(data.counters[0].amount));
+      $('.donations').html(RJ.commify(data.counters[1].amount));
       return;
     }
 

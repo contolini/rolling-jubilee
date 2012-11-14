@@ -31,7 +31,8 @@ module.exports = function(grunt) {
       assets: {
         files: [
           'index.html',
-          'thanks/index.html'
+          'thanks/index.html',
+          'join-the-team/index.html'
         ]
       }
     },

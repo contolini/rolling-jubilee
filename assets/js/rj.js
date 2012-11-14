@@ -2,7 +2,6 @@
  * Namespace the main app
  *
  */
-
 var RJ = RJ || {
 
   /**
@@ -15,7 +14,6 @@ var RJ = RJ || {
    * Setup data caching
    *
    */
-
   setupDataCaching: function() {
     if (RJ.fetchDataFromGDocs()) {
       dataCache = {};
@@ -138,16 +136,17 @@ var RJ = RJ || {
    */
   transform: function (arr, num) {
 
-    var result = [], temp = [];
+    var result = [],
+        temp = [];
     _.each(arr, function ( elem, i ) {
-        if (i > 0 && i % num === 0) {
-            result.push( temp );
-            temp = [];
-        }
-        temp.push( elem );
+      if (i > 0 && i % num === 0) {
+        result.push( temp );
+        temp = [];
+      }
+      temp.push( elem );
     });
     if (temp.length > 0) {
-        result.push(temp);
+      result.push(temp);
     }
     return result;
 
@@ -243,8 +242,6 @@ $(function(){
   $(document).on('click', '.journalists li', function() {
     $(this).addClass('selected').siblings().removeClass('selected');
     RJ.twitter.target = $(this).find('.username').text();
-    $('.go a').attr('href', RJ.twitter.getURL(RJ.twitter.target, RJ.twitter.tweet));
-    $('.go textarea').val(RJ.twitter.tweet);
     $('.statuses').slideDown();
     var loc = $('.statuses').offset().top;
     $("html,body").animate({

@@ -10,19 +10,19 @@ var RJ = RJ || {
    *
    */
   SPREADSHEETKEY: '0Ao7re1ITFPKydFhKcGFDT2JpTnphbnNubTUwbThVSEE',
-  
+
   /**
    * Setup data caching
    *
    */
-   
+
   setupDataCaching: function() {
     if (RJ.fetchDataFromGDocs()) {
       dataCache = {};
     }
     RJ.pendingGDocsRequests = 0;
   },
-  
+
   fetchDataFromGDocs: function(name) {
     // To refresh the data cache, include '?fetch' in the URL
     // Counters always get refreshed
@@ -32,7 +32,7 @@ var RJ = RJ || {
       return (window.location.href.indexOf('fetch') != -1);
     }
   },
-  
+
   showDataFromGDocs: function() {
     var textarea = document.createElement('textarea');
     document.body.appendChild(textarea);
@@ -44,13 +44,13 @@ var RJ = RJ || {
     textarea.style.zIndex = '65554';
     textarea.value = 'var dataCache = ' + JSON.stringify(dataCache) + ';';
   },
-  
+
   /**
    * Create a new Miso dataset and load a Google spreadsheet into it
    * http://misoproject.com/dataset/tutorials/googlespreadsheets
    */
   loadData: function (name, worksheetId, columns) {
-    
+
     var data = [],
         content = {};
 
@@ -60,7 +60,7 @@ var RJ = RJ || {
       key: RJ.SPREADSHEETKEY,
       worksheet: worksheetId
     });
-    
+
     if (RJ.fetchDataFromGDocs(name)) {
       RJ.pendingGDocsRequests++;
       ds.fetch({
@@ -108,7 +108,7 @@ var RJ = RJ || {
 
     // the counter text is kinda weird so we do some special stuff
     if (name === 'counters') {
-      RJ.counter.options.counterStart = parseInt(data.counters[0].amount - 7);
+      RJ.counter.options.counterStart = Math.round(parseInt(data.counters[0].amount) / 10) * 10;
       RJ.counter.options.counterEnd = parseInt(data.counters[0].amount);
       $('.counter').jOdometer(RJ.counter.options);
       $('.donations').html(RJ.commify(parseInt(data.counters[1].amount)));
@@ -208,9 +208,9 @@ var RJ = RJ || {
  *
  */
 $(function(){
-    
+
   RJ.setupDataCaching();
-  
+
   // load all the different worksheets
   RJ.loadData('videos', '1', 4);
   RJ.loadData('allies', '2');

@@ -29,7 +29,10 @@ module.exports = function(grunt) {
     },
     rev: {
       assets: {
-        files: 'index.html'
+        files: [
+          'index.html',
+          'thanks/index.html'
+        ]
       }
     },
     watch: {

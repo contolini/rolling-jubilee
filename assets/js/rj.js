@@ -75,8 +75,10 @@ var RJ = RJ || {
           }
           RJ.templatize(name, content, columns);
         },
-        error : function() {
-          console.log("Error loading Google spreadsheet.");
+        error: function() {
+          data = dataCache[name];
+          content[name] = data;
+          RJ.templatize(name, content, columns);
         }
       });
     } else {
@@ -107,10 +109,16 @@ var RJ = RJ || {
 
     // the counter text is kinda weird so we do some special stuff
     if (name === 'counters') {
-      RJ.counter.options.counterStart = Math.round(parseInt(data.counters[0].amount) / 10) * 10;
-      RJ.counter.options.counterEnd = parseInt(data.counters[0].amount);
+      var donatedAmount = RJ.normalizeCounterValue(data.counters[0].amount);
+      var abolishAmount = RJ.normalizeCounterValue(data.counters[1].amount);
+      RJ.counter.options.counterStart = Math.round(donatedAmount / 10) * 10;
+      RJ.counter.options.counterEnd = donatedAmount;
+      if (RJ.counter.options.counterStart == RJ.counter.options.counterEnd) {
+        // In case the last digit of donatedAmount is zero
+        RJ.counter.options.counterStart -= 10;
+      }
       $('.counter').jOdometer(RJ.counter.options);
-      $('.donations').html(RJ.commify(parseInt(data.counters[1].amount)));
+      $('.donations').html(RJ.commify(abolishAmount));
       return;
     }
 
@@ -158,7 +166,19 @@ var RJ = RJ || {
    *
    */
   commify: function (x) {
-      return '$' + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return '$' + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  },
+  
+  /**
+   * Utility function for parsing counter string value into an integer
+   *
+   */
+  normalizeCounterValue: function(x) {
+    // Strip out decimal value
+    x = x.toString().replace(/\.(\d+)/);
+    // Remove any non-decimal characters
+    x = x.replace(/\D/, '');
+    return parseInt(x);
   },
 
   /**

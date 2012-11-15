@@ -111,7 +111,7 @@ var RJ = RJ || {
     if (name === 'counters') {
       var donatedAmount = RJ.normalizeCounterValue(data.counters[0].amount);
       var abolishAmount = RJ.normalizeCounterValue(data.counters[1].amount);
-      RJ.counter.options.counterStart = Math.round(donatedAmount / 10) * 10;
+      RJ.counter.options.counterStart = donatedAmount - 3;
       RJ.counter.options.counterEnd = donatedAmount;
       if (RJ.counter.options.counterStart == RJ.counter.options.counterEnd) {
         // In case the last digit of donatedAmount is zero
@@ -168,7 +168,7 @@ var RJ = RJ || {
   commify: function (x) {
     return '$' + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   },
-  
+
   /**
    * Utility function for parsing counter string value into an integer
    *

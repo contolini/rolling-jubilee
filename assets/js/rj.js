@@ -24,11 +24,14 @@ var RJ = RJ || {
   fetchDataFromGDocs: function(name) {
     // To refresh the data cache, include '?fetch' in the URL
     // Counters always get refreshed
-    if (name === 'counters') {
-      return true;
-    } else {
+    
+    // Don't fetch counters until we work out why it's breaking
+    
+    //if (name === 'counters') {
+    //  return true;
+    //} else {
       return (window.location.href.indexOf('fetch') != -1);
-    }
+    //}
   },
 
   showDataFromGDocs: function() {

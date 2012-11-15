@@ -25,13 +25,11 @@ var RJ = RJ || {
     // To refresh the data cache, include '?fetch' in the URL
     // Counters always get refreshed
 
-    // Don't fetch counters until we work out why it's breaking
-
-    //if (name === 'counters') {
-    //  return true;
-    //} else {
+    if (name === 'counters') {
+      return true;
+    } else {
       return (window.location.href.indexOf('fetch') != -1);
-    //}
+    }
   },
 
   showDataFromGDocs: function() {
@@ -109,10 +107,8 @@ var RJ = RJ || {
 
     // the counter text is kinda weird so we do some special stuff
     if (name === 'counters') {
-      //RJ.counter.options.counterStart = Math.round(parseInt(data.counters[0].amount) / 10) * 10;
-      //RJ.counter.options.counterEnd = parseInt(data.counters[0].amount);
-      RJ.counter.options.counterStart = 185715;
-      RJ.counter.options.counterEnd = 185718;
+      RJ.counter.options.counterStart = Math.round(parseInt(data.counters[0].amount) / 10) * 10;
+      RJ.counter.options.counterEnd = parseInt(data.counters[0].amount);
       $('.counter').jOdometer(RJ.counter.options);
       $('.donations').html(RJ.commify(parseInt(data.counters[1].amount)));
       return;

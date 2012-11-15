@@ -11,6 +11,40 @@ var RJ = RJ || {
   SPREADSHEETKEY: '0Ao7re1ITFPKydFhKcGFDT2JpTnphbnNubTUwbThVSEE',
 
   /**
+   * Setup data caching
+   *
+   */
+  setupDataCaching: function() {
+    if (RJ.fetchDataFromGDocs()) {
+      dataCache = {};
+    }
+    RJ.pendingGDocsRequests = 0;
+  },
+
+  fetchDataFromGDocs: function(name) {
+    // To refresh the data cache, include '?fetch' in the URL
+    // Counters always get refreshed
+
+    if (name === 'counters') {
+      return true;
+    } else {
+      return (window.location.href.indexOf('fetch') != -1);
+    }
+  },
+
+  showDataFromGDocs: function() {
+    var textarea = document.createElement('textarea');
+    document.body.appendChild(textarea);
+    textarea.style.position = 'absolute';
+    textarea.style.left = '20px';
+    textarea.style.top = '20px';
+    textarea.style.width = '500px';
+    textarea.style.height = '250px';
+    textarea.style.zIndex = '65554';
+    textarea.value = 'var dataCache = ' + JSON.stringify(dataCache) + ';';
+  },
+
+  /**
    * Create a new Miso dataset and load a Google spreadsheet into it
    * http://misoproject.com/dataset/tutorials/googlespreadsheets
    */
@@ -26,18 +60,32 @@ var RJ = RJ || {
       worksheet: worksheetId
     });
 
-    ds.fetch({
-      success: function() {
-        this.each(function(row) {
-          data.push(row);
-        });
-        content[name] = data;
-        RJ.templatize(name, content, columns);
-      },
-      error : function() {
-        console.log("Error loading Google spreadsheet.");
-      }
-    });
+    if (RJ.fetchDataFromGDocs(name)) {
+      RJ.pendingGDocsRequests++;
+      ds.fetch({
+        success: function() {
+          this.each(function(row) {
+            data.push(row);
+          });
+          content[name] = data;
+          dataCache[name] = data;
+          RJ.pendingGDocsRequests--;
+          if (RJ.fetchDataFromGDocs() && RJ.pendingGDocsRequests == 0) {
+            RJ.showDataFromGDocs();
+          }
+          RJ.templatize(name, content, columns);
+        },
+        error: function() {
+          data = dataCache[name];
+          content[name] = data;
+          RJ.templatize(name, content, columns);
+        }
+      });
+    } else {
+      data = dataCache[name];
+      content[name] = data;
+      RJ.templatize(name, content, columns);
+    }
 
   },
 
@@ -61,10 +109,16 @@ var RJ = RJ || {
 
     // the counter text is kinda weird so we do some special stuff
     if (name === 'counters') {
-      RJ.counter.options.counterStart = data.counters[0].amount - 3;
-      RJ.counter.options.counterEnd = data.counters[0].amount;
+      var donatedAmount = RJ.normalizeCounterValue(data.counters[0].amount);
+      var abolishAmount = RJ.normalizeCounterValue(data.counters[1].amount);
+      RJ.counter.options.counterStart = Math.round(donatedAmount / 10) * 10;
+      RJ.counter.options.counterEnd = donatedAmount;
+      if (RJ.counter.options.counterStart == RJ.counter.options.counterEnd) {
+        // In case the last digit of donatedAmount is zero
+        RJ.counter.options.counterStart -= 10;
+      }
       $('.counter').jOdometer(RJ.counter.options);
-      $('.donations').html(RJ.commify(data.counters[1].amount));
+      $('.donations').html(RJ.commify(abolishAmount));
       return;
     }
 
@@ -91,16 +145,17 @@ var RJ = RJ || {
    */
   transform: function (arr, num) {
 
-    var result = [], temp = [];
+    var result = [],
+        temp = [];
     _.each(arr, function ( elem, i ) {
-        if (i > 0 && i % num === 0) {
-            result.push( temp );
-            temp = [];
-        }
-        temp.push( elem );
+      if (i > 0 && i % num === 0) {
+        result.push( temp );
+        temp = [];
+      }
+      temp.push( elem );
     });
     if (temp.length > 0) {
-        result.push(temp);
+      result.push(temp);
     }
     return result;
 
@@ -111,7 +166,19 @@ var RJ = RJ || {
    *
    */
   commify: function (x) {
-      return '$' + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return '$' + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  },
+  
+  /**
+   * Utility function for parsing counter string value into an integer
+   *
+   */
+  normalizeCounterValue: function(x) {
+    // Strip out decimal value
+    x = x.toString().replace(/\.(\d+)/);
+    // Remove any non-decimal characters
+    x = x.replace(/\D/, '');
+    return parseInt(x);
   },
 
   /**
@@ -144,12 +211,11 @@ var RJ = RJ || {
 
     getURL: function(target, status) {
       var base = 'https://twitter.com/home?',
-          status = (status !== undefined) ? status : RJ.twitter.tweet,
-          url = 'http://ow.ly/eT6fr';
+          status = (status !== undefined) ? status : RJ.twitter.tweet;
       if (target !== undefined) {
-        return base + 'status=.' + encodeURIComponent(target + ' ' + status + ' ' + url);
+        return base + 'status=.' + encodeURIComponent(target + ' ' + status);
       }
-      return base + 'status=' + encodeURIComponent(status + ' ' + url);
+      return base + 'status=' + encodeURIComponent(status);
     }
 
    }
@@ -161,6 +227,8 @@ var RJ = RJ || {
  *
  */
 $(function(){
+
+  RJ.setupDataCaching();
 
   // load all the different worksheets
   RJ.loadData('videos', '1', 4);
@@ -194,8 +262,6 @@ $(function(){
   $(document).on('click', '.journalists li', function() {
     $(this).addClass('selected').siblings().removeClass('selected');
     RJ.twitter.target = $(this).find('.username').text();
-    $('.go a').attr('href', RJ.twitter.getURL(RJ.twitter.target, RJ.twitter.tweet));
-    $('.go textarea').val(RJ.twitter.tweet);
     $('.statuses').slideDown();
     var loc = $('.statuses').offset().top;
     $("html,body").animate({

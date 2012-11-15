@@ -27,15 +27,24 @@ module.exports = function(grunt) {
         dest: 'assets/js/rj.min.js'
       }
     },
+    rev: {
+      assets: {
+        files: [
+          'index.html',
+          'thanks/index.html'
+        ]
+      }
+    },
     watch: {
       files: ['assets/css/rj.less', 'assets/js/rj.js', 'grunt.js'],
-      tasks: 'default'
+      tasks: 'less min'
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-assets-revving');
 
   // Default task.
-  grunt.registerTask('default', 'less min');
+  grunt.registerTask('default', 'less min rev');
 
 };

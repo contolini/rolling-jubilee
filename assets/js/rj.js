@@ -24,9 +24,9 @@ var RJ = RJ || {
   fetchDataFromGDocs: function(name) {
     // To refresh the data cache, include '?fetch' in the URL
     // Counters always get refreshed
-    
+
     // Don't fetch counters until we work out why it's breaking
-    
+
     //if (name === 'counters') {
     //  return true;
     //} else {
@@ -109,8 +109,10 @@ var RJ = RJ || {
 
     // the counter text is kinda weird so we do some special stuff
     if (name === 'counters') {
-      RJ.counter.options.counterStart = Math.round(parseInt(data.counters[0].amount) / 10) * 10;
-      RJ.counter.options.counterEnd = parseInt(data.counters[0].amount);
+      //RJ.counter.options.counterStart = Math.round(parseInt(data.counters[0].amount) / 10) * 10;
+      //RJ.counter.options.counterEnd = parseInt(data.counters[0].amount);
+      RJ.counter.options.counterStart = 185715;
+      RJ.counter.options.counterEnd = 185718;
       $('.counter').jOdometer(RJ.counter.options);
       $('.donations').html(RJ.commify(parseInt(data.counters[1].amount)));
       return;

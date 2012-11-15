@@ -191,12 +191,11 @@ var RJ = RJ || {
 
     getURL: function(target, status) {
       var base = 'https://twitter.com/home?',
-          status = (status !== undefined) ? status : RJ.twitter.tweet,
-          url = 'http://ow.ly/eT6fr';
+          status = (status !== undefined) ? status : RJ.twitter.tweet;
       if (target !== undefined) {
-        return base + 'status=.' + encodeURIComponent(target + ' ' + status + ' ' + url);
+        return base + 'status=.' + encodeURIComponent(target + ' ' + status);
       }
-      return base + 'status=' + encodeURIComponent(status + ' ' + url);
+      return base + 'status=' + encodeURIComponent(status);
     }
 
    }

@@ -38,7 +38,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ['assets/css/rj.less', 'assets/js/rj.js', 'grunt.js'],
-      tasks: 'default'
+      tasks: 'less min'
     }
   });
 

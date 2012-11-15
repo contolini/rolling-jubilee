@@ -46,6 +46,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-assets-revving');
 
   // Default task.
-  grunt.registerTask('default', 'less min');
+  grunt.registerTask('default', 'less min rev');
 
 };

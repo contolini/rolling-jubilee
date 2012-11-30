@@ -273,7 +273,7 @@ $(function(){
   // clicking on a tweet under the journos
   $(document).on('click', '.statuses li', function() {
     $(this).addClass('selected').siblings().removeClass('selected');
-    RJ.twitter.tweet = $(this).find('span').text();
+    RJ.twitter.tweet = $(this).find('span').text() + ' http://rollingjubilee.org';
     location.href = RJ.twitter.getURL(RJ.twitter.target, RJ.twitter.tweet);
     return false;
   });

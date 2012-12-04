@@ -22,6 +22,11 @@ var RJ = RJ || {
   },
 
   fetchDataFromGDocs: function(name) {
+    
+    // We are now back to pulling all content dynamically (leaving the logic
+    //   below intact in case we want to revert later)
+    return true;
+    
     // To refresh the data cache, include '?fetch' in the URL
     // Counters always get refreshed
 

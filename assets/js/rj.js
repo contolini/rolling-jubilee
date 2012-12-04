@@ -38,6 +38,10 @@ var RJ = RJ || {
   },
 
   showDataFromGDocs: function() {
+    
+    // Disabling this for now
+    return;
+    
     var textarea = document.createElement('textarea');
     document.body.appendChild(textarea);
     textarea.style.position = 'absolute';

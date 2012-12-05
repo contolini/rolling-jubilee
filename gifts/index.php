@@ -1,3 +1,57 @@
+<?php
+
+if (is_valid_submission()) {
+  redirect_to_permalink();
+} else if (is_valid_permalink()) {
+  $vars = extract_vars_from_permalink();
+  extract($vars);
+}
+
+function is_valid_submission() {
+  return (
+    $_SERVER['REQUEST_METHOD'] == 'POST'
+  );
+}
+
+function redirect_to_permalink() {
+  $vars = array();
+  foreach ($_POST as $key => $value) {
+    $vars[] = urlencode($key) . '=' . urlencode($value);
+  }
+  $vars = implode('&', $vars);
+  $vars = base64_encode($vars);
+  header("Location: ./?$vars");
+  exit;
+}
+
+function is_valid_permalink() {
+  return (
+    !empty($_SERVER['QUERY_STRING'])
+  );
+}
+
+function extract_vars_from_permalink() {
+  $vars = $_SERVER['QUERY_STRING'];
+  $vars = base64_decode($vars);
+  $vars = explode('&', $vars);
+  $vars_array = array();
+  foreach ($vars as $key_value) {
+    list($key, $value) = explode('=', $key_value);
+    $key = urldecode($key);
+    $value = urldecode($value);
+    $vars_array[$key] = $value;
+  }
+  return $vars_array;
+}
+
+function attr_value($var) {
+  global $$var;
+  if (!empty($$var)) {
+    echo htmlentities($$var);
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -87,26 +141,26 @@
                   <img src="http://placehold.it/500x300">
                 </div>
 
-                <form id="create-form" method="post" action="">
+                <form id="create-form" method="post" action="./">
 
                   <div class="control-group">
                     <div class="controls">
                       <label class="placeholder-label">Enter text to display on the ecard:</label>
-                      <textarea class="input-xlarge" rows="2" name="text" maxlength="92" placeholder="Enter text to display on the advertisement"></textarea>
+                      <textarea class="input-xlarge" rows="2" name="text" maxlength="92" placeholder="Enter text to display on the advertisement"><?php attr_value('text'); ?></textarea>
                     </div>
                   </div>
 
                   <div class="control-group">
                     <div class="controls">
                       <label class="placeholder-label">Your first name:</label>
-                      <input type="text" class="input-xlarge" id="first_name" name="first_name" placeholder="Your first name">
+                      <input type="text" class="input-xlarge" id="first_name" name="first_name" placeholder="Your first name" value="<?php attr_value('first_name'); ?>">
                     </div>
                   </div>
 
                   <div class="control-group">
                     <div class="controls">
                       <label class="placeholder-label">Your email address:</label>
-                      <input type="text" class="input-xlarge" id="email" name="email" placeholder="Your email address">
+                      <input type="text" class="input-xlarge" id="email" name="email" placeholder="Your email address" value="<?php attr_value('email'); ?>">
                     </div>
                   </div>
 

@@ -22,11 +22,11 @@ var RJ = RJ || {
   },
 
   fetchDataFromGDocs: function(name) {
-    
+
     // We are now back to pulling all content dynamically (leaving the logic
     //   below intact in case we want to revert later)
     return true;
-    
+
     // To refresh the data cache, include '?fetch' in the URL
     // Counters always get refreshed
 
@@ -38,10 +38,10 @@ var RJ = RJ || {
   },
 
   showDataFromGDocs: function() {
-    
+
     // Disabling this for now
     return;
-    
+
     var textarea = document.createElement('textarea');
     document.body.appendChild(textarea);
     textarea.style.position = 'absolute';
@@ -216,7 +216,7 @@ var RJ = RJ || {
    */
    twitter: {
 
-    tweet: 'On November 15: Remember, remember, debt is not forever. #RollingJubilee #PeoplesBailout @StrikeDebt',
+    tweet: 'You are not a loan. #RollingJubilee #PeoplesBailout @StrikeDebt',
 
     getURL: function(target, status) {
       var base = 'https://twitter.com/home?',
@@ -226,6 +226,14 @@ var RJ = RJ || {
       }
       return base + 'status=' + encodeURIComponent(status);
     }
+
+   },
+
+   /**
+    * Ecard stuff
+    *
+    */
+   ecard: {
 
    }
 

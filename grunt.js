@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
         '* http://rollingjubilee.org/\n' +
         '* Copyright (c) <%= grunt.template.today("yyyy") %> ' +
-        'Chris Contolini; Licensed MIT */'
+        'Strike Debt; Licensed MIT */'
     },
     less: {
       production: {

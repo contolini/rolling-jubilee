@@ -72,9 +72,9 @@ function attr_value($var) {
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-    <link rel="stylesheet" href="../assets/fonts/mensch/font.css?1354641646564" />
-    <link rel="stylesheet" href="../assets/js/fancybox/jquery.fancybox.css?1354641646564" />
-    <link rel="stylesheet" href="../assets/css/rj.min.css?1354641646564" />
+    <link rel="stylesheet" href="../assets/fonts/mensch/font.css?1354905087192" />
+    <link rel="stylesheet" href="../assets/js/fancybox/jquery.fancybox.css?1354905087192" />
+    <link rel="stylesheet" href="../assets/css/rj.min.css?1354905087192" />
   </head>
   <body id="join-the-team">
 
@@ -138,7 +138,15 @@ function attr_value($var) {
               <div class="ecard">
 
                 <div id="preview">
-                  <img src="http://placehold.it/500x300">
+                  <div>
+                    <img src="http://placehold.it/300x200">
+                  </div>
+                  <div>
+                    <img src="http://placehold.it/300x200">
+                  </div>
+                  <div>
+                    <img src="http://placehold.it/300x200">
+                  </div>
                 </div>
 
                 <form id="create-form" method="post" action="./">
@@ -183,8 +191,8 @@ function attr_value($var) {
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
-    <script src="../assets/js/data-cache.js?1354641646564"></script>
-    <script src="../assets/js/rj.min.js?1354641646564"></script>
+    <script src="../assets/js/data-cache.js?1354905087192"></script>
+    <script src="../assets/js/rj.min.js?1354905087192"></script>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];

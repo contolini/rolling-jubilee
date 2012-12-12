@@ -137,19 +137,19 @@ function attr_value($var) {
 
               <div class="ecard">
 
-                <div id="preview">
-                  <div>
+                <div id="options">
+                  <div id="one">
                     <img src="http://placehold.it/300x200">
                   </div>
-                  <div>
+                  <div id="two">
                     <img src="http://placehold.it/300x200">
                   </div>
-                  <div>
+                  <div id="three">
                     <img src="http://placehold.it/300x200">
                   </div>
                 </div>
 
-                <a class="wepay-widget-button wepay-rj" id="wepay_widget_anchor_509d930edb083" href="https://www.wepay.com/donations/526105166">Continue</a><script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 526105166,widget_type: "donation_campaign",anchor_id: "wepay_widget_anchor_509d930edb083",widget_options: {donation_amount: 99,donor_chooses: true,allow_cover_fee: true,enable_recurring: true,allow_anonymous: true,button_text: "Donate"}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = '../assets/js/wepay.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
+                <a class="wepay-widget-button wepay-rj" id="wepay_widget_anchor_509d930edb083" href="https://www.wepay.com/donations/526105166">Continue</a><script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 526105166,widget_type: "donation_campaign",anchor_id: "wepay_widget_anchor_509d930edb083",widget_options: {donor_chooses: true,allow_cover_fee: true,enable_recurring: true,allow_anonymous: true,button_text: "Donate"}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = '../assets/js/wepay.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
 
               </div>
 

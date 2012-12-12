@@ -44,6 +44,9 @@ WePay.init = function () {
         widget.anchors.push(anchor);
         WePay.$(anchor).unbind('click').unbind('mouseup').unbind('mousedown').on('click', function (e) {
             e.preventDefault();
+            RJ.ecard.donationAmount = WePay.$('input[name="' + widget.anchor_id + '"]').val();
+            $.removeCookie('rollingjubilee');
+            $.cookie('rollingjubilee', JSON.stringify(RJ.ecard));
             this.widget.handle_click(this.widget, WePay.$(this));
             WePay.track_event("Widget Clicked", widget);
         }).data('init', true);

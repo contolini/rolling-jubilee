@@ -235,9 +235,8 @@ var RJ = RJ || {
     */
    ecard: {
 
-      donate: function () {
-        $('.wepay-widget-button').trigger('click');
-      }
+      chosenGraphic: 'one',
+      donationAmount: null
 
    }
 
@@ -300,9 +299,9 @@ $(function(){
   });
 
   // clicking on the ecard donate button
-  $(document).on('click', '#ecard-donate', function() {
-    RJ.ecard.donate();
-    return false;
+  $(document).on('click', '#ecard #options div', function(e) {
+    RJ.ecard.chosenGraphic = $(this).attr('id');
+    e.preventDefault();
   });
 
   // for the join-the-team page

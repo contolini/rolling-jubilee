@@ -235,8 +235,21 @@ var RJ = RJ || {
     */
    ecard: {
 
-      chosenGraphic: 'one',
-      donationAmount: null
+      chosen_graphic: 'one',
+      recipient_name: null,
+      first_name: null,
+      donation_amount: null,
+
+      get: function(cookie) {
+        if (cookie) {
+          $.each($.parseJSON(cookie), function(i, v){
+            if ($('#' + i).length > 0) {
+              $('#' + i).val(v);
+              RJ.ecard[i] = v;
+            }
+          });
+        }
+      }
 
    }
 
@@ -258,6 +271,9 @@ $(function(){
   RJ.loadData('faq1', '5');
   RJ.loadData('faq2', '6');
   RJ.loadData('counters', '7');
+
+  // load ecard stuff
+  RJ.ecard.get($.cookie('rollingjubilee'));
 
   // fancy box modals
   $('.fancybox-media').fancybox({
@@ -299,10 +315,17 @@ $(function(){
   });
 
   // clicking on the ecard donate button
-  $(document).on('click', '#ecard #options div', function(e) {
+  $(document).on('click', '.ecard #options div', function(e) {
     RJ.ecard.chosenGraphic = $(this).attr('id');
+    $('.ecard #options div').removeClass('selected');
+    $(this).addClass('selected');
     e.preventDefault();
   });
+
+  // save recipient and first name values on keyup
+  $('#recipient_name, #first_name').on('keyup', $.debounce(250, function(){
+    RJ.ecard[$(this).attr('id')] = $(this).val();
+  }));
 
   // for the join-the-team page
   $(document).on('click', '#sample-tweets li', function() {

@@ -46,8 +46,7 @@ WePay.init = function () {
             e.preventDefault();
 
             // added by crux
-            RJ.ecard.donationAmount = WePay.$('input[name="' + widget.anchor_id + '"]').val();
-            $.removeCookie('rollingjubilee');
+            RJ.ecard.donation_amount = WePay.$('input[name="' + widget.anchor_id + '"]').val();
             $.cookie('rollingjubilee', JSON.stringify(RJ.ecard));
 
             this.widget.handle_click(this.widget, WePay.$(this));
@@ -77,7 +76,7 @@ WePay.init = function () {
                 return function (widget, widget_anchor) {
                     if (widget.widget_options.donor_chooses || (widget.widget_options.donation_amount === undefined && widget.widget_options.list_suggested_donations === undefined)) {
                         var widget_anchor_width = widget_anchor.outerWidth(true);
-                        WePay.$('<input type="text" name="' + widget.anchor_id + '" placeholder="0.00" class="wepay-widget-input donation-input-pay" />').insertBefore(widget_anchor);
+                        WePay.$('<input type="text" name="' + widget.anchor_id + '" placeholder="0.00" class="wepay-widget-input donation-input-pay" /><div class="clear"></div>').insertBefore(widget_anchor);
                     }
                 };
             case "donation_campaign_progress":

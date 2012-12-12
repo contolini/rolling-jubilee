@@ -72,9 +72,9 @@ function attr_value($var) {
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-    <link rel="stylesheet" href="../assets/fonts/mensch/font.css?1355281719084" />
-    <link rel="stylesheet" href="../assets/js/fancybox/jquery.fancybox.css?1355281719084" />
-    <link rel="stylesheet" href="../assets/css/rj.min.css?1355281719084" />
+    <link rel="stylesheet" href="../assets/fonts/mensch/font.css?1355298446340" />
+    <link rel="stylesheet" href="../assets/js/fancybox/jquery.fancybox.css?1355298446340" />
+    <link rel="stylesheet" href="../assets/css/rj.min.css?1355298446340" />
   </head>
   <body id="join-the-team">
 
@@ -117,9 +117,9 @@ function attr_value($var) {
 
             <div class="span10 offset7 intro">
 
-              <div class="counter-text pre">Send a gift!</div>
 
-              <h3>You are now a part of history! Share the excitement by giving the gift of jubilee this holiday season.</h3>
+
+              <p>&nbsp;</p>
 
               <p>&nbsp;</p>
 
@@ -149,7 +149,41 @@ function attr_value($var) {
                   </div>
                 </div>
 
-                <a class="wepay-widget-button wepay-rj" id="wepay_widget_anchor_509d930edb083" href="https://www.wepay.com/donations/526105166">Continue</a><script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 526105166,widget_type: "donation_campaign",anchor_id: "wepay_widget_anchor_509d930edb083",widget_options: {donor_chooses: true,allow_cover_fee: true,enable_recurring: true,allow_anonymous: true,button_text: "Donate"}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = '../assets/js/wepay.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
+                <div class="row">
+
+                  <div class="span10 offset3">
+
+                    <div id="preview">
+                      <img src="http://placehold.it/400x500">
+                    </div>
+
+                  </div>
+
+                  <div class="span10">
+
+                    <div class="control-group">
+                      <div class="controls">
+                        <label class="placeholder-label">To:</label>
+                        <input type="text" class="input-xlarge" id="recipient_name" name="recipient_name" placeholder="Recipient's first name" value="<?php attr_value('recipient_name'); ?>">
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <div class="controls">
+                        <label class="placeholder-label">From:</label>
+                        <input type="text" class="input-xlarge" id="first_name" name="first_name" placeholder="Your first name" value="<?php attr_value('first_name'); ?>">
+                      </div>
+                    </div>
+
+                    <div>
+                      <label class="placeholder-label">Amount:</label>
+                      <a class="wepay-widget-button wepay-blue" id="wepay_widget_anchor_509d930edb083" href="https://www.wepay.com/donations/526105166">Continue</a> <em class="more">(After donating you'll receive an email with a link to your ecard)</em>
+                      <script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 526105166,widget_type: "donation_campaign",anchor_id: "wepay_widget_anchor_509d930edb083",widget_options: {donor_chooses: true,allow_cover_fee: true,enable_recurring: true,allow_anonymous: true,button_text: "Donate"}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = '../assets/js/wepay.js?1355298446340';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
+                    </div>
+
+                  </div>
+
+                </div>
 
               </div>
 
@@ -164,8 +198,8 @@ function attr_value($var) {
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
-    <script src="../assets/js/data-cache.js?1355281719084"></script>
-    <script src="../assets/js/rj.min.js?1355281719084"></script>
+    <script src="../assets/js/data-cache.js?1355298446340"></script>
+    <script src="../assets/js/rj.min.js?1355298446340"></script>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];

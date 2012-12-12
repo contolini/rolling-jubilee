@@ -23,7 +23,7 @@ module.exports = function(grunt) {
     },
     min: {
       dist: {
-        src: ['<banner:meta.banner>', 'assets/js/miso.ds.deps.min.0.2.2.js', 'assets/js/handlebars-1.0.rc.1.js', 'assets/js/jquery.jodometer.js', 'assets/js/fancybox/jquery.fancybox.pack.js', 'assets/js/fancybox/helpers/jquery.fancybox-media.js', 'assets/js/bootstrap.js', 'assets/js/jquery.cookie.js', 'assets/js/rj.js'],
+        src: ['<banner:meta.banner>', 'assets/js/miso.ds.deps.min.0.2.2.js', 'assets/js/handlebars-1.0.rc.1.js', 'assets/js/jquery.jodometer.js', 'assets/js/fancybox/jquery.fancybox.pack.js', 'assets/js/fancybox/helpers/jquery.fancybox-media.js', 'assets/js/bootstrap.js', 'assets/js/jquery.cookie.js', 'assets/js/jquery.ba-throttle-debounce.js', 'assets/js/rj.js'],
         dest: 'assets/js/rj.min.js'
       }
     },

@@ -149,35 +149,6 @@ function attr_value($var) {
                   </div>
                 </div>
 
-                <form id="create-form" method="post" action="./">
-
-                  <div class="control-group">
-                    <div class="controls">
-                      <label class="placeholder-label">Enter text to display on the ecard:</label>
-                      <textarea class="input-xlarge" rows="2" name="text" maxlength="92" placeholder="Enter text to display on the advertisement"><?php attr_value('text'); ?></textarea>
-                    </div>
-                  </div>
-
-                  <div class="control-group">
-                    <div class="controls">
-                      <label class="placeholder-label">Your first name:</label>
-                      <input type="text" class="input-xlarge" id="first_name" name="first_name" placeholder="Your first name" value="<?php attr_value('first_name'); ?>">
-                    </div>
-                  </div>
-
-                  <div class="control-group">
-                    <div class="controls">
-                      <label class="placeholder-label">Your email address:</label>
-                      <input type="text" class="input-xlarge" id="email" name="email" placeholder="Your email address" value="<?php attr_value('email'); ?>">
-                    </div>
-                  </div>
-
-                  <div>
-                    <button type="submit" class="btn">Submit</button>
-                  </div>
-
-                </form>
-
                 <a class="wepay-widget-button wepay-rj" id="wepay_widget_anchor_509d930edb083" href="https://www.wepay.com/donations/526105166">Continue</a><script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 526105166,widget_type: "donation_campaign",anchor_id: "wepay_widget_anchor_509d930edb083",widget_options: {donation_amount: 99,donor_chooses: true,allow_cover_fee: true,enable_recurring: true,allow_anonymous: true,button_text: "Donate"}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = '../assets/js/wepay.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
 
               </div>

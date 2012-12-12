@@ -240,6 +240,7 @@ var RJ = RJ || {
       first_name: null,
       donation_amount: null,
 
+      // gets info stored in cookie
       get: function(cookie) {
         if (cookie) {
           $.each($.parseJSON(cookie), function(i, v){
@@ -247,8 +248,23 @@ var RJ = RJ || {
               $('#' + i).val(v);
               RJ.ecard[i] = v;
             }
+            console.log(v);
+            if (i === 'chosen_graphic') {
+              $('.ecard #options div').removeClass('selected');
+              $('#' + v).addClass('selected');
+              RJ.ecard.chosen_graphic = v;
+            }
           });
         }
+      },
+
+      // loads generated image
+      getPreview: function() {
+        var chosen_graphic = RJ.ecard.chosen_graphic ? RJ.ecard.chosen_graphic : 'one';
+        var amount = RJ.ecard.donation_amount ? RJ.ecard.donation_amount : '20';
+        var recipient_name = RJ.ecard.recipient_name ? RJ.ecard.recipient_name : 'Friend';
+        var first_name = RJ.ecard.first_name ? RJ.ecard.first_name : 'Your friend';
+        return 'http://5pt.net/rj/gifts/generate.php?image_number=' + chosen_graphic + '&recipient_name=' + recipient_name + '&first_name=' + first_name + '&amount=' + amount;
       }
 
    }
@@ -327,6 +343,16 @@ $(function(){
   $('#recipient_name, #first_name').on('keyup', $.debounce(250, function(){
     RJ.ecard[$(this).attr('id')] = $(this).val();
   }));
+
+  // load full preview on send page
+  $('#preview-full img').attr('src', RJ.ecard.getPreview());
+
+  // update ecard info on send page
+  $('.update-ecard').on('click', function(){
+    RJ.ecard.donation_amount = $('#donation_amount').val();
+    $.cookie('rollingjubilee', JSON.stringify(RJ.ecard));
+    location.reload();
+  });
 
   // for the join-the-team page
   $(document).on('click', '#sample-tweets li', function() {

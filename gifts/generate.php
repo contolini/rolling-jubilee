@@ -3,8 +3,8 @@
 header('Content-Type: image/jpeg');
 
 $image_number = $_GET['image_number'];
-$recipient_name = substr($_GET['recipient_name'], 0, 30);
-$first_name = substr($_GET['first_name'], 0, 30);
+$recipient_name = substr($_GET['recipient_name'], 0, 60);
+$first_name = substr($_GET['first_name'], 0, 60);
 $amount = intval($_GET['amount']);
 generate_card($image_number, $recipient_name, $first_name, $amount);
 

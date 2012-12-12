@@ -411,11 +411,26 @@ nav {
 #ecard {
   #options {
     div {
+      cursor: pointer;
       float: left;
       width: 31%;
       text-align: center;
       margin: 0 1%;
+      img {
+        padding: 5px;
+        opacity: .5;
+      }
+      &.selected {
+        img {
+          border: 5px solid @red;
+          padding: 0;
+          opacity: 1;
+        }
+      }
     }
+  }
+  .bottom {
+    margin-top: 50px;
   }
   label {
     display: inline-block;
@@ -459,6 +474,12 @@ nav {
 
 .mt {
   margin-top: 30px;
+}
+
+.clear {
+  display: block;
+  min-height: 1px;
+  clear: both;
 }
 
 /* jquery odometer counter */

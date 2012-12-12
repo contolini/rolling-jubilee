@@ -138,23 +138,27 @@ function attr_value($var) {
               <div class="ecard">
 
                 <div id="options">
-                  <div id="one">
-                    <img src="http://placehold.it/300x200">
+                  <div id="one" class="selected">
+                    <img src="../assets/img/ecard_one_thumb.jpg">
                   </div>
                   <div id="two">
-                    <img src="http://placehold.it/300x200">
+                    <img src="../assets/img/ecard_two_thumb.jpg">
                   </div>
                   <div id="three">
-                    <img src="http://placehold.it/300x200">
+                    <img src="../assets/img/ecard_three_thumb.jpg">
                   </div>
                 </div>
 
-                <div class="row">
+                <div class="clear"></div>
+
+                <div class="row bottom">
+
+                  <div class="clear"></div>
 
                   <div class="span10 offset3">
 
                     <div id="preview">
-                      <img src="http://placehold.it/400x500">
+                      <img src="../assets/img/ecard_one_preview.jpg">
                     </div>
 
                   </div>

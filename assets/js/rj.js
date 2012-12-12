@@ -314,11 +314,12 @@ $(function(){
     return false;
   });
 
-  // clicking on the ecard donate button
+  // clicking on the ecard illustration optoins
   $(document).on('click', '.ecard #options div', function(e) {
     RJ.ecard.chosenGraphic = $(this).attr('id');
     $('.ecard #options div').removeClass('selected');
     $(this).addClass('selected');
+    $('#preview').find('img').attr('src', $(this).find('img').attr('src').replace('_thumb', '_preview'));
     e.preventDefault();
   });
 

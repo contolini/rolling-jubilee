@@ -72,9 +72,9 @@ function attr_value($var) {
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-    <link rel="stylesheet" href="../assets/fonts/mensch/font.css?1354905087192" />
-    <link rel="stylesheet" href="../assets/js/fancybox/jquery.fancybox.css?1354905087192" />
-    <link rel="stylesheet" href="../assets/css/rj.min.css?1354905087192" />
+    <link rel="stylesheet" href="../assets/fonts/mensch/font.css?1355281719084" />
+    <link rel="stylesheet" href="../assets/js/fancybox/jquery.fancybox.css?1355281719084" />
+    <link rel="stylesheet" href="../assets/css/rj.min.css?1355281719084" />
   </head>
   <body id="join-the-team">
 
@@ -178,6 +178,8 @@ function attr_value($var) {
 
                 </form>
 
+                <a class="wepay-widget-button wepay-rj" id="wepay_widget_anchor_509d930edb083" href="https://www.wepay.com/donations/526105166">Continue</a><script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 526105166,widget_type: "donation_campaign",anchor_id: "wepay_widget_anchor_509d930edb083",widget_options: {donation_amount: 99,donor_chooses: true,allow_cover_fee: true,enable_recurring: true,allow_anonymous: true,button_text: "Donate"}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = '../assets/js/wepay.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
+
               </div>
 
             </div>
@@ -191,8 +193,8 @@ function attr_value($var) {
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
-    <script src="../assets/js/data-cache.js?1354905087192"></script>
-    <script src="../assets/js/rj.min.js?1354905087192"></script>
+    <script src="../assets/js/data-cache.js?1355281719084"></script>
+    <script src="../assets/js/rj.min.js?1355281719084"></script>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];

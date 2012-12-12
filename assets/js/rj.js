@@ -235,6 +235,10 @@ var RJ = RJ || {
     */
    ecard: {
 
+      donate: function () {
+        $('.wepay-widget-button').trigger('click');
+      }
+
    }
 
 };
@@ -292,6 +296,12 @@ $(function(){
     $(this).addClass('selected').siblings().removeClass('selected');
     RJ.twitter.tweet = $(this).find('span').text() + ' http://rollingjubilee.org';
     location.href = RJ.twitter.getURL(RJ.twitter.target, RJ.twitter.tweet);
+    return false;
+  });
+
+  // clicking on the ecard donate button
+  $(document).on('click', '#ecard-donate', function() {
+    RJ.ecard.donate();
     return false;
   });
 

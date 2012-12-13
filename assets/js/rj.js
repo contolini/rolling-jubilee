@@ -236,9 +236,9 @@ var RJ = RJ || {
    ecard: {
 
       chosen_graphic: 'one',
-      recipient_name: null,
-      first_name: null,
-      donation_amount: null,
+      recipient_name: 'Friend',
+      first_name: 'Your Friend',
+      donation_amount: 0,
 
       // gets info stored in cookie
       get: function(cookie) {
@@ -261,7 +261,7 @@ var RJ = RJ || {
       // loads generated image
       getPreview: function() {
         var chosen_graphic = RJ.ecard.chosen_graphic ? RJ.ecard.chosen_graphic : 'one';
-        var amount = RJ.ecard.donation_amount ? RJ.ecard.donation_amount : '20';
+        var amount = RJ.ecard.donation_amount ? RJ.ecard.donation_amount : '0';
         var recipient_name = RJ.ecard.recipient_name ? RJ.ecard.recipient_name : 'Friend';
         var first_name = RJ.ecard.first_name ? RJ.ecard.first_name : 'Your friend';
         return 'http://tmwrk.com/rj/gifts/generate.php?image_number=' + chosen_graphic + '&recipient_name=' + recipient_name + '&first_name=' + first_name + '&amount=' + amount;
@@ -361,9 +361,9 @@ $(function(){
     $('.ecard .right input').each(function(){
       RJ.ecard[$(this).attr('id')] = $(this).val();
     });
-    $('.multiplier').html(parseInt($('#donation_amount').val())*20);
+    $('.multiplier').html(parseInt(RJ.ecard.donation_amount)*20);
     RJ.ecard.checkFields();
-    console.log(RJ.ecard);
+    //console.log(RJ.ecard);
   }));
 
   // load full preview on send page

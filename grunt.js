@@ -32,8 +32,7 @@ module.exports = function(grunt) {
         files: [
           'index.html',
           'thanks/index.html',
-          'gifts/index.html',
-          'gifts/send.html'
+          'gifts/index.html'
         ]
       }
     },

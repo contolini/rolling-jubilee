@@ -1,7 +1,7 @@
 <?php
 
 header('Content-Type: image/jpeg');
-header('Content-Disposition: attachment; filename="rolling-jubilee-ecard.jpg"');
+header('Content-Disposition: attachment; filename="rolling-jubilee-card.jpg"');
 
 $image_number = $_GET['image_number'];
 $recipient_name = substr($_GET['recipient_name'], 0, 60);

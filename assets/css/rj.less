@@ -458,7 +458,8 @@ nav {
     }
   }
   #options {
-    div {
+    .graphic {
+      position: relative;
       cursor: pointer;
       float: left;
       width: 31%;
@@ -473,6 +474,22 @@ nav {
           border: 5px solid @red;
           padding: 0;
           opacity: 1;
+        }
+      }
+      .info {
+        text-align: left;
+        position: absolute;
+        bottom: 5px;
+        left: 20%;
+        padding: 5px;
+        background: white;
+        width: 60%;
+        color: black;
+        display: none;
+      }
+      &:hover {
+        .info {
+          display: block;
         }
       }
     }

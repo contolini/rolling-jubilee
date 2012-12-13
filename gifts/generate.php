@@ -19,7 +19,7 @@ function generate_card($image_number, $recipient_name, $first_name, $amount, $fi
     $image = ImageCreateFromjpeg('http://rollingjubilee.org/assets/img/ecard_' . $image_number . '_full.jpg');
 
     // coordinates of where the text will be placed over the image
-    $x=1924;
+    $x=1910;
     $y=476;
     $angle = 0;
     $fontsize  = 40;

@@ -441,6 +441,9 @@ nav {
 /* ecard stuff */
 
 #ecard {
+  .top {
+    margin-bottom: 50px;
+  }
   #preview {
     width: 90%;
     margin: 50px auto;
@@ -449,7 +452,10 @@ nav {
     padding-right: 20px;
     width: 85%;
     margin: 100px 8% 0 2%;
-    line-height: 25px;
+    line-height: 30px;
+    p {
+      margin-bottom: 20px;
+    }
   }
   #options {
     div {
@@ -473,16 +479,22 @@ nav {
   }
   #donation_amount {
     width: 50px;
+    margin-top: 6px;
+    margin-left: 3px;
   }
-  .update-ecard {
+  .submit-ecard {
     font-family: arial;
     padding: 10px 20px;
+    margin-top: 40px;
+    &.disabled {
+      display: none;
+    }
   }
   .faux-card {
     background-color: #fff;
     color: @black;
     font-family: Milonga;
-    font-size: 20px;
+    font-size: 24px;
     .right {
       input {
         border: 0;
@@ -490,9 +502,11 @@ nav {
         .border-radius(0, 0, 0, 0);
         .box-shadow(0);
         .inner-shadow(0, 0, 0, 0);
-        padding: 0;
-        font-size: 20px;
+        margin-bottom: 0;
+        padding-left: 0;
+        font-size: 24px;
         color: @black;
+        line-height: 25px;
       }
     }
   }

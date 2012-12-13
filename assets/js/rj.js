@@ -248,7 +248,7 @@ var RJ = RJ || {
               $('#' + i).val(v);
               RJ.ecard[i] = v;
             }
-            console.log(v);
+            //console.log(v);
             if (i === 'chosen_graphic') {
               $('.ecard #options div').removeClass('selected');
               $('#' + v).addClass('selected');
@@ -265,6 +265,23 @@ var RJ = RJ || {
         var recipient_name = RJ.ecard.recipient_name ? RJ.ecard.recipient_name : 'Friend';
         var first_name = RJ.ecard.first_name ? RJ.ecard.first_name : 'Your friend';
         return 'http://5pt.net/rj/gifts/generate.php?image_number=' + chosen_graphic + '&recipient_name=' + recipient_name + '&first_name=' + first_name + '&amount=' + amount;
+      },
+
+      // check if they've entered something for all necessary fields
+      checkFields: function() {
+        var allowSubmit = 0;
+        $('.ecard .right input').each(function(){
+          if ($(this).val().length > 0) {
+            allowSubmit++;
+            //console.log($(this).val());
+            console.log(allowSubmit);
+          }
+        });
+        if (allowSubmit > 2) {
+          $('.submit-ecard').removeClass("disabled");
+        } else {
+          $('.submit-ecard').addClass("disabled");
+        }
       }
 
    }
@@ -335,23 +352,24 @@ $(function(){
     RJ.ecard.chosen_graphic = $(this).attr('id');
     $('.ecard #options div').removeClass('selected');
     $(this).addClass('selected');
-    $('#preview').find('img').attr('src', $(this).find('img').attr('src').replace('_thumb', '_preview'));
+    $('#preview').find('img').attr('src', $(this).find('img').attr('src').replace('_thumb', '_left'));
     e.preventDefault();
   });
 
   // save recipient and first name values on keyup
-  $('#recipient_name, #first_name').on('keyup', $.debounce(250, function(){
+  $('.ecard .right input').on('keyup', $.debounce(250, function(){
     RJ.ecard[$(this).attr('id')] = $(this).val();
+    RJ.ecard.checkFields();
   }));
 
   // load full preview on send page
   //$('#preview-full img').attr('src', RJ.ecard.getPreview());
 
-  // update ecard info on send page
-  $('.update-ecard').on('click', function(){
+  // submit ecard info on send page
+  $('.submit-ecard:not(.disabled)').live('click', function(){
     RJ.ecard.donation_amount = $('#donation_amount').val();
-    $.cookie('rollingjubilee', JSON.stringify(RJ.ecard));
-    location.reload();
+    //$.cookie('rollingjubilee', JSON.stringify(RJ.ecard));
+    location.href = RJ.ecard.getPreview();
   });
 
   // for the join-the-team page

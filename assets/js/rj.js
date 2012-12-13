@@ -359,6 +359,7 @@ $(function(){
   // save recipient and first name values on keyup
   $('.ecard .right input').on('keyup', $.debounce(250, function(){
     RJ.ecard[$(this).attr('id')] = $(this).val();
+    $('.multiplier').html(parseInt($('#donation_amount').val())*20);
     RJ.ecard.checkFields();
   }));
 

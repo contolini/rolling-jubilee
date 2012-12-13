@@ -360,7 +360,11 @@ $(function(){
   $('.ecard .right input').on('keyup', $.debounce(250, function(){
     $('.ecard .right input').each(function(){
       RJ.ecard[$(this).attr('id')] = $(this).val();
+      if ($(this).attr('id') === 'donation_amount' && $(this).val().length < 1) {
+        RJ.ecard[$(this).attr('id')] = 0;
+      }
     });
+    //console.log(RJ.ecard.donation_amount);
     $('.multiplier').html(parseInt(RJ.ecard.donation_amount)*20);
     RJ.ecard.checkFields();
     //console.log(RJ.ecard);

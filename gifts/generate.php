@@ -37,6 +37,7 @@ We're taking part in a nationwide movement to buy debts for pennies on the dolla
 To learn more about this project, please visit rollingjubilee.org.
 
 Happy Holidays!
+
 $first_name";
     $text = wordwrap($text, 50, "\n", true);
 

@@ -26,11 +26,13 @@ function generate_card($image_number, $recipient_name, $first_name, $amount, $fi
     $fontfile = '../assets/fonts/milonga/Milonga-Regular.ttf';
     $black = imagecolorallocate($image, 0, 0, 0);
 
+    $amount = $amount * 20;
+
     $text = "Dear $recipient_name,
 
-In your name, I have erased $$amount of medical debts for someone who could no longer pay them.
+In your name, I have erased $$amount of debt for someone who could no longer pay them.
 
-Together, we're taking part in a nationwide movement to buy debts for pennies on the dollar, before they get to debt collectors.
+We're taking part in a nationwide movement to buy debts for pennies on the dollar to prevent debt collectors from collecting on them.
 
 To learn more about this project, please visit rollingjubilee.org.
 

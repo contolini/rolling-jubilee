@@ -274,7 +274,7 @@ var RJ = RJ || {
           if ($(this).val().length > 0) {
             allowSubmit++;
             //console.log($(this).val());
-            console.log(allowSubmit);
+            //console.log(allowSubmit);
           }
         });
         if (allowSubmit > 2) {
@@ -358,9 +358,12 @@ $(function(){
 
   // save recipient and first name values on keyup
   $('.ecard .right input').on('keyup', $.debounce(250, function(){
-    RJ.ecard[$(this).attr('id')] = $(this).val();
+    $('.ecard .right input').each(function(){
+      RJ.ecard[$(this).attr('id')] = $(this).val();
+    });
     $('.multiplier').html(parseInt($('#donation_amount').val())*20);
     RJ.ecard.checkFields();
+    console.log(RJ.ecard);
   }));
 
   // load full preview on send page

@@ -306,7 +306,7 @@ $(function(){
   RJ.loadData('counters', '7');
 
   // load ecard stuff
-  RJ.ecard.get($.cookie('rollingjubilee'));
+  //RJ.ecard.get($.cookie('rollingjubilee'));
 
   // fancy box modals
   $('.fancybox-media').fancybox({

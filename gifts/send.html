@@ -19,6 +19,7 @@
     <![endif]-->
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <link rel="stylesheet" href="../assets/fonts/mensch/font.css?1355309933470" />
+    <link href='http://fonts.googleapis.com/css?family=Milonga&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../assets/js/fancybox/jquery.fancybox.css?1355309933470" />
     <link rel="stylesheet" href="../assets/css/rj.min.css?1355309933470" />
   </head>
@@ -81,10 +82,42 @@
 
               <div class="ecard">
 
-                <div class="row top">
+                <div class="row top faux-card">
 
-                  <div id="preview-full">
-                    <img src="">
+                  <div class="span12 center left">
+
+                    <div id="preview">
+
+                      <img src="../assets/img/ecard_left_two.jpg">
+
+                    </div>
+
+                  </div>
+
+                  <div class="span12 right">
+
+                    <div id="text">
+
+                      <p>Dear <input type="text" id="recipient_name" name="recipient_name" placeholder="Recipient's name" value="" maxlength="50">,</p>
+
+                      <p>In your name, I have erased $<input type="text" id="donation_amount" name="donation_amount" placeholder="0.00" value="" maxlength="50"> of medical debts for someone who could no longer pay them.</p>
+
+                      <p>Together, we're taking part in a nationwide movement to buy debts for pennies on the dollar, before they get to debt collectors.</p>
+
+                      <p>To learn more about this project, please visit rollingjubilee.org.</p>
+
+                      <p>Happy Holidays!</p>
+
+                      <p><input type="text" id="first_name" name="first_name" placeholder="Your name" value="" maxlength="50"></p>
+
+                      <input type="hidden" id="chosen_image" name="chosen_image" value="">
+
+                      <div class="control-group">
+                        <a class="wepay-blue btn btn-primary update-ecard">Download printable ecard!</a>
+                      </div>
+
+                    </div>
+
                   </div>
 
                 </div>
@@ -128,10 +161,6 @@
                     <div class="control-group">
                       <label class="placeholder-label">Amount:</label>
                       <input type="text" class="input-small" id="donation_amount" name="donation_amount" placeholder="0.00" value="">
-                    </div>
-
-                    <div class="control-group">
-                      <a class="wepay-blue btn btn-primary update-ecard">Update</a>
                     </div>
 
                     <input type="hidden" id="chosen_image" name="chosen_image" value="">

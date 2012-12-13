@@ -1,6 +1,7 @@
 <?php
 
 header('Content-Type: image/jpeg');
+header('Content-Disposition: attachment; filename="rolling-jubilee-ecard.jpg"');
 
 $image_number = $_GET['image_number'];
 $recipient_name = substr($_GET['recipient_name'], 0, 60);
@@ -41,7 +42,7 @@ $first_name";
     imagettftext($image, $fontsize, $angle, $x, $y, $black, $fontfile, $text);
 
     // if we're saving the image, use the highest quality. if we're just previewing it, use crappier quality
-    $quality = ($filename) ? 100 : 80;
+    $quality = 100;
 
     // output the jpg
     imagejpeg($image, $filename, $quality);

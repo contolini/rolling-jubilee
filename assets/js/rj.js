@@ -345,7 +345,7 @@ $(function(){
   }));
 
   // load full preview on send page
-  $('#preview-full img').attr('src', RJ.ecard.getPreview());
+  //$('#preview-full img').attr('src', RJ.ecard.getPreview());
 
   // update ecard info on send page
   $('.update-ecard').on('click', function(){

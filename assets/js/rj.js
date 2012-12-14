@@ -279,9 +279,17 @@ var RJ = RJ || {
         });
         if (allowSubmit > 2) {
           $('.submit-ecard').removeClass("disabled");
+          $('#more-options').removeClass("disabled");
+          RJ.ecard.updatePrintableContent();
         } else {
           $('.submit-ecard').addClass("disabled");
+          $('#more-options').addClass("disabled");
         }
+      },
+      
+      updatePrintableContent: function() {
+        var imageSrc = RJ.ecard.getPreview();
+        $('#print-content').html('<img src="' + imageSrc + '">');
       }
 
    }
@@ -369,6 +377,9 @@ $(function(){
     RJ.ecard.checkFields();
     //console.log(RJ.ecard);
   }));
+  
+  // Check for page reload
+  RJ.ecard.checkFields();
 
   // load full preview on send page
   //$('#preview-full img').attr('src', RJ.ecard.getPreview());
@@ -378,6 +389,11 @@ $(function(){
     RJ.ecard.donation_amount = $('#donation_amount').val();
     //$.cookie('rollingjubilee', JSON.stringify(RJ.ecard));
     location.href = RJ.ecard.getPreview();
+  });
+  
+  $('#print-this-page:not(.disabled)').live('click', function(){
+    window.print();
+    return false;
   });
 
   // for the join-the-team page

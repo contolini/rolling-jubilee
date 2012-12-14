@@ -17,7 +17,8 @@ module.exports = function(grunt) {
           yuicompress: true
         },
         files: {
-          'assets/css/rj.min.css': ['assets/css/bootstrap.css', 'assets/css/rj.less']
+          'assets/css/rj.min.css': ['assets/css/bootstrap.css', 'assets/css/rj.less'],
+          'assets/css/gifts-print.min.css': ['assets/css/gifts-print.css']
         }
       }
     },
@@ -37,7 +38,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['assets/css/rj.less', 'assets/js/rj.js', 'grunt.js'],
+      files: ['assets/css/rj.less', 'assets/css/gifts-print.css', 'assets/js/rj.js', 'grunt.js'],
       tasks: 'less min'
     }
   });

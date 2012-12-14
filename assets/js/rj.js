@@ -266,9 +266,44 @@ var RJ = RJ || {
         var first_name = RJ.ecard.first_name ? RJ.ecard.first_name : 'Your friend';
         return 'http://tmwrk.com/rj/gifts/generate.php?image_number=' + chosen_graphic + '&recipient_name=' + recipient_name + '&first_name=' + first_name + '&amount=' + amount;
       },
-
+      
+      checkURLParams: function() {
+        var image_number = RJ.ecard.getParameterByName('image_number');
+        var donation_amount = RJ.ecard.getParameterByName('donation_amount');
+        var recipient_name = RJ.ecard.getParameterByName('recipient_name');
+        var first_name = RJ.ecard.getParameterByName('first_name');
+        if (image_number && donation_amount && recipient_name && first_name) {
+          RJ.ecard.chosen_graphic = image_number;
+          RJ.ecard.donation_amount = donation_amount;
+          RJ.ecard.recipient_name = recipient_name;
+          RJ.ecard.first_name = first_name;
+          RJ.ecard.updatePrintableContent();
+          $('body').addClass('permalinked');
+        }
+      },
+      
+      // This function is by Artem Barger
+      // from http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values
+      getParameterByName: function(name) {
+        name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+        var regexS = "[\\?&]" + name + "=([^&#]*)";
+        var regex = new RegExp(regexS);
+        var results = regex.exec(window.location.search);
+        if(results == null)
+          return null;
+        else
+          return decodeURIComponent(results[1].replace(/\+/g, " "));
+      },
+      
       // check if they've entered something for all necessary fields
       checkFields: function() {
+        $('.ecard .right input').each(function(){
+          RJ.ecard[$(this).attr('id')] = $(this).val();
+          if ($(this).attr('id') === 'donation_amount' && $(this).val().length < 1) {
+            RJ.ecard[$(this).attr('id')] = 0;
+          }
+        });
+        $('.multiplier').html(parseInt(RJ.ecard.donation_amount)*20);
         var allowSubmit = 0;
         $('.ecard .right input').each(function(){
           if ($(this).val().length > 0) {
@@ -290,6 +325,10 @@ var RJ = RJ || {
       updatePrintableContent: function() {
         var imageSrc = RJ.ecard.getPreview();
         $('#print-content').html('<img src="' + imageSrc + '">');
+      },
+      
+      emailLink: function() {
+        
       }
 
    }
@@ -366,19 +405,12 @@ $(function(){
 
   // save recipient and first name values on keyup
   $('.ecard .right input').on('keyup', $.debounce(250, function(){
-    $('.ecard .right input').each(function(){
-      RJ.ecard[$(this).attr('id')] = $(this).val();
-      if ($(this).attr('id') === 'donation_amount' && $(this).val().length < 1) {
-        RJ.ecard[$(this).attr('id')] = 0;
-      }
-    });
-    //console.log(RJ.ecard.donation_amount);
-    $('.multiplier').html(parseInt(RJ.ecard.donation_amount)*20);
     RJ.ecard.checkFields();
     //console.log(RJ.ecard);
   }));
   
   // Check for page reload
+  RJ.ecard.checkURLParams();
   RJ.ecard.checkFields();
 
   // load full preview on send page
@@ -391,8 +423,27 @@ $(function(){
     location.href = RJ.ecard.getPreview();
   });
   
-  $('#print-this-page:not(.disabled)').live('click', function(){
+  $('#print-this-page').live('click', function(){
     window.print();
+    return false;
+  });
+  
+  $('#email-link').live('click', function(){
+    var image_number = encodeURIComponent(RJ.ecard.chosen_graphic);
+    var donation_amount = encodeURIComponent(RJ.ecard.donation_amount);
+    var recipient_name = encodeURIComponent(RJ.ecard.recipient_name);
+    var first_name = encodeURIComponent(RJ.ecard.first_name);
+    var permalink = 'http://rollingjubilee.org/gifts/?image_number=' + image_number + '&recipient_name=' + recipient_name + '&first_name=' + first_name + '&donation_amount=' + donation_amount;
+    var bitlyRequest = 'http://api.bitly.com/v3/shorten?login=dphiffer&apiKey=R_67523ca32f7b9c2cd1acedd601a662a0&longUrl=' + encodeURIComponent(permalink) + '&format=json';
+    $.ajax({
+      url: bitlyRequest,
+      dataType: 'json',
+      success: function(json) {
+        var subject = 'Happy Holidays!';
+        var body = 'Dear ' + RJ.ecard.recipient_name + ",\n\nI'm sending you the gift of debt liberation! Just follow this link:\n" + json.data.url + "\n\nHappy Holidays!\n" + RJ.ecard.first_name;
+        window.location = 'mailto:?to=&subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      }
+    });
     return false;
   });
 

@@ -629,8 +629,21 @@ nav {
   display: none;
 }
 
+body.permalinked .container {
+  display: none !important;
+}
+
 #print-content {
   display: none;
+}
+
+body.permalinked #print-content {
+  display: block;
+}
+
+body.permalinked #print-content img {
+  width: 100%;
+  height: auto;
 }
 
 #twitter-widget-0 {

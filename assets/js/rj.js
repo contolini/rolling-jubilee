@@ -266,7 +266,7 @@ var RJ = RJ || {
         var first_name = RJ.ecard.first_name ? RJ.ecard.first_name : 'Your friend';
         return 'http://tmwrk.com/rj/gifts/generate.php?image_number=' + chosen_graphic + '&recipient_name=' + recipient_name + '&first_name=' + first_name + '&amount=' + amount;
       },
-      
+
       checkURLParams: function() {
         var image_number = RJ.ecard.getParameterByName('image_number');
         var donation_amount = RJ.ecard.getParameterByName('donation_amount');
@@ -281,7 +281,7 @@ var RJ = RJ || {
           $('body').addClass('permalinked');
         }
       },
-      
+
       // This function is by Artem Barger
       // from http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values
       getParameterByName: function(name) {
@@ -294,7 +294,7 @@ var RJ = RJ || {
         else
           return decodeURIComponent(results[1].replace(/\+/g, " "));
       },
-      
+
       // check if they've entered something for all necessary fields
       checkFields: function() {
         $('.ecard .right input').each(function(){
@@ -321,14 +321,14 @@ var RJ = RJ || {
           $('#more-options').addClass("disabled");
         }
       },
-      
+
       updatePrintableContent: function() {
         var imageSrc = RJ.ecard.getPreview();
         $('#print-content').html('<img src="' + imageSrc + '">');
       },
-      
+
       emailLink: function() {
-        
+
       }
 
    }
@@ -351,6 +351,7 @@ $(function(){
   RJ.loadData('faq1', '5');
   RJ.loadData('faq2', '6');
   RJ.loadData('counters', '7');
+  RJ.loadData('press', '8');
 
   // load ecard stuff
   //RJ.ecard.get($.cookie('rollingjubilee'));
@@ -408,7 +409,7 @@ $(function(){
     RJ.ecard.checkFields();
     //console.log(RJ.ecard);
   }));
-  
+
   // Check for page reload
   RJ.ecard.checkURLParams();
   RJ.ecard.checkFields();
@@ -422,12 +423,12 @@ $(function(){
     //$.cookie('rollingjubilee', JSON.stringify(RJ.ecard));
     location.href = RJ.ecard.getPreview();
   });
-  
+
   $('#print-this-page').live('click', function(){
     window.print();
     return false;
   });
-  
+
   $('#email-link').live('click', function(){
     var image_number = encodeURIComponent(RJ.ecard.chosen_graphic);
     var donation_amount = encodeURIComponent(RJ.ecard.donation_amount);

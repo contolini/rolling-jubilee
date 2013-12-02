@@ -264,7 +264,7 @@ var RJ = RJ || {
         var amount = RJ.ecard.donation_amount ? RJ.ecard.donation_amount : '0';
         var recipient_name = RJ.ecard.recipient_name ? RJ.ecard.recipient_name : 'Friend';
         var first_name = RJ.ecard.first_name ? RJ.ecard.first_name : 'Your friend';
-        return 'http://tmwrk.com/rj/gifts/generate.php?image_number=' + chosen_graphic + '&recipient_name=' + recipient_name + '&first_name=' + first_name + '&amount=' + amount;
+        return 'http://aaron.bornstein.org/x/generate.php?image_number=' + chosen_graphic + '&recipient_name=' + recipient_name + '&first_name=' + first_name + '&amount=' + amount;
       },
 
       checkURLParams: function() {
